@@ -6,6 +6,7 @@ const { User } = require('../../db/models');
 
 const router = express.Router();
 
+// Log in
 router.post(
     '/', 
     asyncHandler(async (req, res, next) => {
@@ -29,15 +30,24 @@ router.post(
     })
 );
 
+// Log out
+router.delete(
+    '/',
+    (_req, res) => {
+        res.clearCookie('token');
+        return res.json({ message: 'success' });
+    }
+);
+
 module.exports = router;
 
 /*
 fetch('/api/session', {
-  method: 'POST',
+  method: 'DELETE',
   headers: {
     "Content-Type": "application/json",
     "XSRF-TOKEN": `eDEz5cjI-KSawLB2ohtZwzGl93-HRqXIxmDQ`
   },
-  body: JSON.stringify({ credential: 'dem@demo.io', password: '1234' })
 }).then(res => res.json()).then(data => console.log(data));
+
 */
