@@ -68,14 +68,3 @@ router.get(
 );
 
 module.exports = router;
-
-/*
-fetch('/api/session', {
-  method: 'POST',
-  headers: {
-    "Content-Type": "application/json",
-    "XSRF-TOKEN": `4w1B6sFq-60xjNY2VA2fT48mhUE8H2f6rAWU`
-  },
-  body: JSON.stringify({ credential: 'LiquidA', password: 'passwordd' })
-}).then(res => res.json()).then(data => console.log(data));
-*/
