@@ -9,6 +9,16 @@ module.exports = {
         email: 'demo@demo.io',
         username: 'DemoLitionMan',
         hashedPassword: bcrypt.hashSync('1234')
+      },
+      {
+        email: 'connor@sky.net',
+        username: 'TermiNator',
+        hashedPassword: bcrypt.hashSync('t800')
+      },
+      {
+        email: 'liquidAtor@drop.io',
+        username: 'LiquidA',
+        hashedPassword: bcrypt.hashSync('eraser')
       }
     ], {});
   },
