@@ -1,4 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { signup } from '../../store/session';
+import './signupForm.css';
 
 const SignupForm = () => {
     const [username, setUsername] = useState('');
@@ -12,9 +16,12 @@ const SignupForm = () => {
     const [errors, setErrors] = useState([]);
 
     const emailRegex = /^\S+@\S+\.\S+$/
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const session = useSelector(state => state.session.user);
 
     useEffect(() => {
-        if (username.length < 3 && username) {
+        if (username.length < 4 && username) {
             setUsernameError('Username must have at least three characters')
         } else setUsernameError();
         if (!emailRegex.test(email) && email) {
@@ -26,13 +33,42 @@ const SignupForm = () => {
 
     },[username, email, password, confirmPassword, errors])
 
+    const reset = () => {
+        setUsername()
+        setEmail()
+        setPassword()
+        setConfirmPassword()
+    };
+
+    if (session) history.push('/home')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        setErrors([]);
+
+        const user = {
+            username,
+            email,
+            password
+        }
+        dispatch(signup(user))
+            .catch(async (res) => {
+                const data = await res.json()
+                if (data && data.errors) setErrors(data.errors)
+            })
+            .then(history.push('/home'))
+            .then(reset())
+    
+    };
+
     return (
         <div className='modal-signup-form'>
             <h1>Sign Up</h1>
             <ul>
                 {errors?.map(error => <li key={error}>{error}</li>)}
             </ul>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Username</label>
                 <input 
                     placeholder='johndoe'
@@ -60,6 +96,7 @@ const SignupForm = () => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 <p>{passwordError}</p>
+                <input type='submit' value='submit'/>
             </form>
         </div>
     )
