@@ -42,7 +42,7 @@ function LoginForm() {
         <div className='modal-form-component'>
             <h2>Login Form</h2>
             <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
+                {errors?.map(error => <li key={error}>{error}</li>)}
             </ul>
             <form onSubmit={handleSubmit}>
                 <input 
@@ -61,6 +61,7 @@ function LoginForm() {
                 />
                 <input type='submit' value='submit'/>
             </form>
+            <a href='/signup'>Don't have an account yet?</a>
         </div>
     )
 }

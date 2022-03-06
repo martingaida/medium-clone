@@ -1,16 +1,16 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/loginForm';
 import Home from './components/home';
 import { restoreUser } from './store/session';
+import SignupForm from './components/signupForm';
 
 function App() {
   const dispatch = useDispatch();
-  const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
-    dispatch(restoreUser()).then(() => setIsAuth(true));
+    dispatch(restoreUser());
   }, [dispatch])
 
   return (
@@ -18,6 +18,9 @@ function App() {
       <Switch> 
         <Route path='/login'>
           <LoginForm />
+        </Route>
+        <Route path='/signup'>
+          <SignupForm />
         </Route>
         <Route path='/home'>
           <Home />
