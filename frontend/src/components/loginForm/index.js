@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../store/session';
+import './loginForm.css';
 
 function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState([]);
 
-    const state = useSelector(state => state);
+    const session = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -16,24 +18,32 @@ function LoginForm() {
         setPassword('')
     };
 
+    if (session) history.push('/home')
+
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        setErrors([]);
 
         const user = {
             credential: username,
             password
         }
 
-        dispatch(login(user));
-        console.log('Session: ', state.session)        
+        dispatch(login(user))
+            .catch(async (res) => {
+                const data = await res.json()
+                if (data && data.errors) setErrors(data.errors)
+            });
         reset()
-        if (state.session.user) history.push('/home')
-        
     };
 
     return (
         <div className='form-component'>
             <h2>Login Form</h2>
+            <ul>
+                {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
             <form onSubmit={handleSubmit}>
                 <input 
                     type='text'

@@ -1,10 +1,10 @@
 import { csrfFetch } from './csrf';
 
-const CREATE_SESSION = 'session/CREATE'
-const DELETE_SESSION = 'session/DELETE'
+const CREATE_SESSION = 'session/CREATE';
+const DELETE_SESSION = 'session/DELETE';
 
 export const createSession = (user) => {
-    console.log('createSession - user: ', user)
+
     return {
         type: CREATE_SESSION,
         payload: {
@@ -23,6 +23,13 @@ export const deleteSession = () => {
     };
 };
 
+export const restoreUser = () => async dispatch => {
+    const response = await csrfFetch('/api/session');
+    const data = await response.json();
+    dispatch(createSession(data.user));
+    return response;
+};
+
 export const login = (user) => async (dispatch) => {
     const { credential, password } = user;
     const response = await csrfFetch('/api/session', {
@@ -33,7 +40,7 @@ export const login = (user) => async (dispatch) => {
         })
     });
     const data = await response.json();
-    console.log('Data: ', data)
+    
     dispatch(createSession(data.user));
     return response;
 };
