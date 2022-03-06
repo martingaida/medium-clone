@@ -39,7 +39,7 @@ function LoginForm() {
     };
 
     return (
-        <div className='form-component'>
+        <div className='modal-form-component'>
             <h2>Login Form</h2>
             <ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
