@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+import { useState } from 'react';
 
 const CREATE_SESSION = 'session/CREATE';
 const DELETE_SESSION = 'session/DELETE';
@@ -18,17 +19,18 @@ export const createSession = (user) => {
 };
 
 export const deleteSession = () => {
+
     return {
         type: DELETE_SESSION
     };
 };
 
-export const restoreUser = () => async dispatch => {
+export const restoreUser = () => async (dispatch) => {
     const response = await csrfFetch('/api/session');
     const data = await response.json();
+    console.log('Data: ', data.user)
     dispatch(createSession(data.user));
-    return response;
-};
+}
 
 export const login = (user) => async (dispatch) => {
     const { credential, password } = user;

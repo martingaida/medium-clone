@@ -29,7 +29,7 @@ function LoginForm() {
             credential: username,
             password
         }
-
+        
         dispatch(login(user))
             .catch(async (res) => {
                 const data = await res.json()
