@@ -14,8 +14,14 @@ function SplashPage() {
     return (
         <div className='splashpage-main-content'>
             {session ?
-                <p>User {session.username} authenticated.</p> :
-                <p>No user authenticated.</p>
+                <>
+                    <p>User {session.username} authenticated.</p>
+                    <p>Full functionality.</p>
+                </> :
+                <>
+                    <p>No user authenticated.</p>
+                    <p>Limited functionality.</p>
+                </>
             }
         </div>
     );

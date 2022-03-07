@@ -36,10 +36,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-/*
-window.csrfFetch('/api/test', {
-  method: 'POST',
-  body: JSON.stringify({ credential: 'DemoLitionMan', password: '1234' })
-}).then(res => res.json()).then(data => console.log(data));
-*/
