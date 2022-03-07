@@ -1,0 +1,55 @@
+.nav-content-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 75px;
+    border-bottom: 1px solid black;
+}
+
+.nav-content-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+}
+
+.medium-logo {
+    height: 45px;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+.nav-bar > * {
+    margin: 0 10px 0 10px;
+}
+
+.btn-black {
+    background-color: black;
+    border-radius: 35px;
+    border-style: none;
+    font-size: 14px;
+    color: white;
+    padding: 10px 15px 10px 15px;
+}
+
+.btn-black:hover {
+    cursor: pointer;
+}
+
+.btn-plain {
+    border: none;
+    background-color: transparent;
+    color: #292929;
+    font-size: 14px;
+}
+
+.btn-plain:hover {
+    cursor: pointer;
+}

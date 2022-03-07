@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { signup } from '../../store/session';
+import LoginFormModal from '../loginFormModal';
 import './signupForm.css';
 
 const SignupForm = () => {
@@ -13,6 +14,7 @@ const SignupForm = () => {
     const [usernameError, setUsernameError] = useState();
     const [emailError, setEmailError] = useState();
     const [passwordError, setPasswordError] = useState();
+    const [passwordMatchError, setPasswordMatchError] = useState();
     const [errors, setErrors] = useState([]);
 
     const emailRegex = /^\S+@\S+\.\S+$/
@@ -27,9 +29,12 @@ const SignupForm = () => {
         if (!emailRegex.test(email) && email) {
             setEmailError('Enter a valid e-mail address')
         } else setEmailError();
-        if (password !== confirmPassword) {
-            setPasswordError('Passwords don\'t match')
+        if (password.length < 6 && password) {
+            setPasswordError('Password must have at least six characters')
         } else setPasswordError();
+        if (password !== confirmPassword) {
+            setPasswordMatchError('Passwords don\'t match')
+        } else setPasswordMatchError();
 
     },[username, email, password, confirmPassword, errors])
 
@@ -40,7 +45,7 @@ const SignupForm = () => {
         setConfirmPassword()
     };
 
-    if (session) history.push('/')
+    // if (session) history.push('/')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -57,47 +62,65 @@ const SignupForm = () => {
                 const data = await res.json()
                 if (data && data.errors) setErrors(data.errors)
             })
-            .then(history.push('/home'))
-            .then(reset())
-    
+        if (!errors) {
+            history.push('/')
+            reset()
+        }
     };
 
     return (
         <div className='modal-signup-form'>
-            <h1>Sign Up</h1>
-            <ul>
-                {errors?.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <form onSubmit={handleSubmit}>
-                <label>Username</label>
-                <input 
-                    placeholder='johndoe'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <p>{usernameError}</p>
-                <label>E-mail</label>
-                <input
-                    placeholder='johndoe@gmail.com'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <p>{emailError}</p>
-                <label>Password</label>
-                <input
-                    placeholder='abcDEF1234'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <label>Confirm Password</label>
-                <input
-                    placeholder='abcDEF1234'
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                <p>{passwordError}</p>
-                <input type='submit' value='submit'/>
-            </form>
+            <p>Join Medium</p>
+            <div>
+                <ul>
+                    {errors?.map(error => <li key={error} className='error-message'>{error}</li>)}
+                </ul>
+            </div>
+            <div className='form-content-main'>
+                <form onSubmit={handleSubmit}>
+                    <label>Username</label>
+                    <input 
+                        className='input-field' 
+                        type='text'
+                        placeholder='johndoe'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <p className='error-message'>{usernameError}</p>
+                    <label>E-mail</label>
+                    <input
+                        className='input-field'
+                        type='email' 
+                        placeholder='johndoe@gmail.com'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <p className='error-message'>{emailError}</p>
+                    <label>Password</label>
+                    <input
+                        className='input-field'
+                        type='password' 
+                        placeholder='••••••••'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <p className='error-message'>{passwordError}</p>
+                    <label>Confirm Password</label>
+                    <input
+                        className='input-field' 
+                        type='password'
+                        placeholder='••••••••'
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                    <p className='error-message'>{passwordMatchError}</p>
+                    <input className='btn-black' type='submit' value='submit'/>
+                </form>
+            </div>
+            <div className='form-content-footer'>
+                {/* <p>Already have any account?</p>
+                <LoginFormModal /> */}
+            </div>
         </div>
     )
 }

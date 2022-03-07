@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../store/session';
+import SignupFormModal from '../signupFormModal';
 import './loginForm.css';
 
 function LoginForm() {
@@ -18,7 +19,7 @@ function LoginForm() {
         setPassword('')
     };
 
-    if (session) history.push('/')
+    // if (session) history.push('/')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -40,28 +41,37 @@ function LoginForm() {
 
     return (
         <div className='modal-form-component'>
-            <h2>Login Form</h2>
-            <ul>
-                {errors?.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type='text'
-                    name='username' 
-                    placeholder='username'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input 
-                    type='text' 
-                    name='password' 
-                    placeholder='password'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <input type='submit' value='submit'/>
-            </form>
-            <a href='/signup'>Don't have an account yet?</a>
+            <p>Log in.</p>
+            <div>
+                <ul>
+                    {errors?.map(error => <li key={error} className='error-message'>{error}</li>)}
+                </ul>
+            </div>
+            <div className='form-content-main'>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        className='input-field' 
+                        type='text'
+                        name='username' 
+                        placeholder='username'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <input 
+                        className='input-field' 
+                        type='password' 
+                        name='password' 
+                        placeholder='••••••••'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <input className='btn-black' id='btn-signIn' type='submit' value='Submit'/>
+                </form>
+            </div>
+            <div className='form-content-footer'>
+                {/* <p>Don't have an account yet?</p>
+                <SignupFormModal /> */}
+            </div>
         </div>
     )
 }

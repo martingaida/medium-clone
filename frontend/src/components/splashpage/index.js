@@ -1,8 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import './home.css';
+import './splashpage.css';
 
-function Home() {
+function SplashPage() {
     const dispatch = useDispatch();
     // To make content available for aunauthenticated users this section needs to be disabled..
     const session = useSelector(state => state.session.user);
@@ -12,10 +12,13 @@ function Home() {
     // ..section ends.
 
     return (
-        <div className='main-content'>
-            
+        <div className='splashpage-main-content'>
+            {session ?
+                <p>User {session.username} authenticated.</p> :
+                <p>No user authenticated.</p>
+            }
         </div>
     );
 };
 
-export default Home;
+export default SplashPage;

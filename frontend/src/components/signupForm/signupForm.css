@@ -1,0 +1,37 @@
+.modal-signup-form > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 50px 0 50px 0;
+}
+
+.form-content-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-content-main > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.form-content-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 0 0;
+}
+
+.form-content-footer > button {
+    color: green;
+    font-weight: bold;
+    border-radius: none;
+    background-color: none;
+}

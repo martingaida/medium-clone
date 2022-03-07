@@ -1,0 +1,12 @@
+.splashpage-main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.splashpage-main-content > p {
+    font-family: serif;
+    font-weight: 400;
+    font-size: 35px;
+}

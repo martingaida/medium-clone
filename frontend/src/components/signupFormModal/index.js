@@ -4,10 +4,10 @@ import SignupForm from '../signupForm';
 
 const LoginFormModal = () => {
     const [modalVisible, setModalVisible] = useState(false);
-
+    
     return (
         <>
-            <button onClick={() => setModalVisible(true)}>Sign Up</button>
+            <button className='btn-black' onClick={() => setModalVisible(true)}>Get started</button>
             {modalVisible && (
                 <Modal onClose={() => setModalVisible(false)}>
                     <SignupForm />

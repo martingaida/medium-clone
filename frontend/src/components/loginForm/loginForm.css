@@ -1,3 +1,65 @@
-.modal-form-component {
-    
+.modal-form-component > p {
+    font-family: serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.modal-login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 0 0 75px 0;
+}
+
+.form-content-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-content-main > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: left;
+}
+
+.input-field {
+    border-style: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+    margin: 10px 0 15px 0;
+    height: 35px;
+    width: 210px;
+    font-size: 14px;
+}
+
+.form-content-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 0 0;
+}
+
+.form-content-footer > button {
+    color: green;
+    font-weight: bold;
+    border-radius: none;
+    background-color: none;
+}
+
+#btn-signIn {
+    margin: 50px 0 0 0;
+    max-width: 150px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
 }

@@ -9,20 +9,23 @@ const Navigation = () => {
     const session = useSelector(state => state.session.user);
 
     return (
-        <div className='nav-bar'>
-            <nav>
-                {!session && 
-                    <>
-                        <LoginFormModal />
-                        <SignupFormModal />
-                    </>
-                }
-                {session && 
-                    <>
-                        <button onClick={() => dispatch(logout())}>Log Out</button>
-                    </>
-                }
-            </nav>
+        <div className='nav-content-main'>
+            <div className='nav-content-center'>
+                <img className='medium-logo' src={require('../../assets/mediumLogoLarge.png')}/>
+                <div className='nav-bar'>
+                    {!session && 
+                        <>
+                            <LoginFormModal />
+                            <SignupFormModal />
+                        </>
+                    }
+                    {session && 
+                        <>
+                            <button className='btn-black' onClick={() => dispatch(logout())}>Log Out</button>
+                        </>
+                    }
+                </div>
+            </div>
         </div>
     )
 }

@@ -13,10 +13,17 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .modal-content {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
+    width: 678px;
+    height: 695px;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
