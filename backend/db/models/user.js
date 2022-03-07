@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         len: [4, 30],
         isNotEmail(value) {
@@ -21,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [3, 256]
+        len: [5, 256]
       }
     },
     hashedPassword: {
@@ -81,7 +82,15 @@ module.exports = (sequelize, DataTypes) => {
     return await User.scope('currentUser').findByPk(user.id);
   }
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Story, {
+      foreignKey: 'userId'
+    })
+    User.hasMany(models.Comment, {
+      foreignKey: 'userId'
+    })
+    User.hasMany(models.Like, {
+      foreignKey: 'userId'
+    })
   };
   return User;
 };
