@@ -11,7 +11,10 @@ const Navigation = () => {
     return (
         <div className='nav-content-main'>
             <div className='nav-content-center'>
-                <img className='medium-logo' src={require('../../assets/mediumLogoLarge.png')}/>
+                <div id='main-logo'>
+                    <img className='medium-logo' src={require('../../assets/mediumLogo.png')}/>
+                    <h1 id='main-logo-text-1'>mAI<span id='main-logo-text-2'>d</span></h1>
+                </div>
                 <div className='nav-bar'>
                     {!session && 
                         <>
