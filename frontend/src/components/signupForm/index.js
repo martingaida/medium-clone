@@ -40,7 +40,7 @@ const SignupForm = () => {
         setConfirmPassword()
     };
 
-    if (session) history.push('/home')
+    if (session) history.push('/')
 
     const handleSubmit = (e) => {
         e.preventDefault()

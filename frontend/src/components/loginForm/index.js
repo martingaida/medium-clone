@@ -18,7 +18,7 @@ function LoginForm() {
         setPassword('')
     };
 
-    if (session) history.push('/home')
+    if (session) history.push('/')
 
     const handleSubmit = (e) => {
         e.preventDefault()

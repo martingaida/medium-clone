@@ -5,6 +5,7 @@ import LoginForm from './components/loginForm';
 import Home from './components/home';
 import { restoreUser } from './store/session';
 import SignupForm from './components/signupForm';
+import Navigation from './components/navigation';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,14 +17,15 @@ function App() {
   return (
     <>
       <Switch> 
-        <Route path='/login'>
+        {/* <Route path='/login'>
           <LoginForm />
-        </Route>
-        <Route path='/signup'>
+        </Route> */}
+        {/* <Route path='/signup'>
           <SignupForm />
-        </Route>
-        <Route path='/home'>
+        </Route> */}
+        <Route exact path='/'>
           <Home />
+          <Navigation />
         </Route>
       </Switch>
     </>
