@@ -1,13 +1,38 @@
 .splashpage-main-content {
     display: flex;
+    overflow: hidden;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100vw;
+    height: 475px;
+    border-bottom: 1px solid black;
+    background-color: rgba(109, 195, 248, 0.5);
 }
 
 .splashpage-main-content > p {
     font-family: serif;
     font-weight: 400;
     font-size: 35px;
+}
+
+.text-art {
+    white-space: pre;
+}
+
+.ai-text-art {
+    width: 50vw;
+}
+
+.nav-bar-space-background {
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 75px;
+    background-color: white;
+}
+
+.nav-bar-space-filler {
+    width: 100vw;
+    height: 75px;
 }

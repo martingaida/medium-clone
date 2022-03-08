@@ -1,4 +1,6 @@
 .nav-content-main {
+    position: fixed;
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,10 +67,10 @@
     margin: 0 0 0 5px;
 }
 
-#main-logo-text-1:first-letter {
+/* #main-logo-text-1:first-letter {
     color: grey;
 }
 
 #main-logo-text-2 {
     color: grey;
-}
+} */

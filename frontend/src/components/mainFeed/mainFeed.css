@@ -1,0 +1,16 @@
+.mF-author-profile {
+    width: 25px;
+    height: 25px;
+    border-radius: 20px;
+}
+
+.mF-content-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.mF-content-story {
+    width: 85vw;
+}
