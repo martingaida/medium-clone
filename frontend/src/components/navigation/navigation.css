@@ -5,8 +5,8 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 75px;
-    border-bottom: 1px solid black;
+    height: 4.7em;
+    border-bottom: 0.06px solid black;
 }
 
 .nav-content-center {
@@ -14,11 +14,11 @@
     justify-content: space-between;
     align-items: center;
     width: 85vw;
-    max-width: 750px;
+    max-width: 46.9em;
 }
 
 .medium-logo {
-    height: 45px;
+    height: 2.8em;
 }
 
 .nav-bar {
@@ -30,16 +30,16 @@
 }
 
 .nav-bar > * {
-    margin: 0 10px 0 10px;
+    margin: 0 0.6em 0 0.6em;
 }
 
 .btn-black {
     background-color: black;
-    border-radius: 35px;
+    border-radius: 2.2em;
     border-style: none;
-    font-size: 14px;
+    font-size: 0.9em;
     color: white;
-    padding: 10px 15px 10px 15px;
+    padding: 0.6em 0.9em 0.6em 0.9em;
     margin: 0;
 }
 
@@ -51,7 +51,7 @@
     border: none;
     background-color: transparent;
     color: #292929;
-    font-size: 14px;
+    font-size: 0.9em;
 }
 
 .btn-plain:hover {
@@ -66,7 +66,7 @@
 }
 
 #main-logo > h1 {
-    margin: 0 0 0 5px;
+    margin: 0 0 0 0.3em;
 }
 
 /* #main-logo-text-1:first-letter {
