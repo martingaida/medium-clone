@@ -7,6 +7,7 @@ import { restoreUser } from './store/session';
 import SignupForm from './components/signupForm';
 import Navigation from './components/navigation';
 import SplashPage from './components/splashpage';
+import MainFeed from './components/mainFeed';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function App() {
           <Home />
           <Navigation />
           <SplashPage />
+          <MainFeed />
         </Route>
       </Switch>
     </>

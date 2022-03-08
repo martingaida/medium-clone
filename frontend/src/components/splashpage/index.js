@@ -12,18 +12,26 @@ function SplashPage() {
     // ..section ends.
 
     return (
-        <div className='splashpage-main-content'>
-            {session ?
+        <>
+            {!session ?
+                <div className='sP-content-main'>
+                    <div className='sP-content-center'>
+                        <div className='sP-content-left'>
+                            <p className='sP-subheading'>Your idea. We do the writing.</p>
+                            <p className='sP-heading'>Future belongs to robots.</p>
+                        </div>
+                        <div className='sP-content-right'>
+                            <img className='ai-text-art' src={require('../../assets/ai-text-art.png')}/>
+                        </div>
+                    </div>
+                </div>
+                :
                 <>
-                    <p>User {session.username} authenticated.</p>
-                    <p>Full functionality.</p>
-                </> :
-                <>
-                    <p>No user authenticated.</p>
-                    <p>Limited functionality.</p>
+                    <div className='nav-bar-space-background'/>
+                    <div className='nav-bar-space-filler'/>
                 </>
             }
-        </div>
+        </>
     );
 };
 
