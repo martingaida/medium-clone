@@ -13,7 +13,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90vw;
+    width: 85vw;
+    max-width: 750px;
 }
 
 .medium-logo {
@@ -39,6 +40,7 @@
     font-size: 14px;
     color: white;
     padding: 10px 15px 10px 15px;
+    margin: 0;
 }
 
 .btn-black:hover {

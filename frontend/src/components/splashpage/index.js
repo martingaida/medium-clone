@@ -14,8 +14,16 @@ function SplashPage() {
     return (
         <>
             {!session ?
-                <div className='splashpage-main-content'>
-                    <img className='ai-text-art' src={require('../../assets/ai-text-art.png')}/>
+                <div className='sP-content-main'>
+                    <div className='sP-content-center'>
+                        <div className='sP-content-left'>
+                            <p className='sP-subheading'>Your idea. We do the writing.</p>
+                            <p className='sP-heading'>Future belongs to robots.</p>
+                        </div>
+                        <div className='sP-content-right'>
+                            <img className='ai-text-art' src={require('../../assets/ai-text-art.png')}/>
+                        </div>
+                    </div>
                 </div>
                 :
                 <>

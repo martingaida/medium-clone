@@ -6,11 +6,12 @@
 
 .mF-content-main {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .mF-content-story {
     width: 85vw;
+    max-width: 750px;
 }
