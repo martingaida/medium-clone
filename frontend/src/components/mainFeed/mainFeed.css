@@ -25,7 +25,7 @@
     font-size: 1em;
     color: #757575;
     text-overflow: ellipsis;
-    line-height: 1.1em;
+    line-height: 1em;
     overflow: hidden;
 }
 
@@ -90,4 +90,35 @@
     background-color: #f2f2f2;
     border-radius: 0.9em;
     padding: 0.4em 0.6em;
+}
+
+@media (max-width: 31.2em) {
+
+    .mF-content-story {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mF-story-img > img {
+        width: 85vw;
+        height: 15em;
+    }
+
+    .mF-content-story {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .mF-story-info {
+        margin: 0.9em 0 0.9em 0;
+    }
+
+    .mF-story-title > h2 {
+        margin: 0.9em 0 0 0;
+    }
 }
