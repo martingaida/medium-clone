@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/session';
 import LoginFormModal from '../loginFormModal';
 import SignupFormModal from '../signupFormModal';
+import NewStoryModal from '../newStoryModal';
 import './navigation.css';
 
 const Navigation = () => {
@@ -24,6 +25,7 @@ const Navigation = () => {
                     }
                     {session && 
                         <>
+                            <NewStoryModal />
                             <button className='btn-black' onClick={() => dispatch(logout())}>Log Out</button>
                         </>
                     }

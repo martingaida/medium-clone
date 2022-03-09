@@ -17,7 +17,7 @@ function SplashPage() {
                 <div className='sP-content-main'>
                     <div className='sP-content-center'>
                         <div className='sP-content-left'>
-                            <p className='sP-subheading'>Your idea. We do the writing.</p>
+                            <p className='sP-subheading'>Your story. We do the writing.</p>
                             <p className='sP-heading'>Future belongs to robots.</p>
                         </div>
                         <div className='sP-content-right'>
