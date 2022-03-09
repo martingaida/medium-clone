@@ -14,7 +14,7 @@ export const createStory = (story) => async (dispatch) => {
         })
     });
     // dispatch reducer to update state
-    return response;
+    return dispatch(fetchStories());
 }
 
 export const populateStories = (stories) => {
@@ -30,7 +30,6 @@ export const fetchStories = () => async (dispatch) => {
         method: 'GET'
     })
     const data = await response.json();
-    console.log('fetchStories Data:', data.stories)
     dispatch(populateStories(data.stories))
 }
 
