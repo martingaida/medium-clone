@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import './mainFeed.css';
 
 const MainFeed = () => {
-    const stories = useSelector(state => state.stories.stories)
-    console.log(stories[0])
+    // const stories = useSelector(state => state.stories.stories)
+    // console.log(stories[0])
     return (
         <>
             <div className='mF-content-main'>
@@ -31,9 +31,9 @@ const MainFeed = () => {
                     </div>
                 </div>
             </div>
-            {stories?.map(story => {
+            {/* {stories?.map(story => {
                 return <h1 key={story.id}>{story.title}</h1>
-            })}
+            })} */}
         </>
     )
 }
