@@ -26,7 +26,7 @@ const Navigation = () => {
                     {session && 
                         <>
                             <NewStoryModal />
-                            <button className='btn-black' onClick={() => dispatch(logout())}>Log Out</button>
+                            <button className='btn-grey' onClick={() => dispatch(logout())}>Log Out</button>
                         </>
                     }
                 </div>

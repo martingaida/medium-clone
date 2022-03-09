@@ -38,9 +38,6 @@ export const storiesReducer = (state = {}, action) => {
         case POPULATE_STORIES: {
             const newState = {...state}
             newState.stories = action.payload
-            // action.payload.forEach(story => {
-            //     newState.stories[story.id] = story;
-            // });
             return newState
         }
         default:

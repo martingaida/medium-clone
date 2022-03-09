@@ -12,7 +12,7 @@ router.get('/',
     csrfProtection,
     asyncHandler(async (req, res) => {
         const stories = await Story.findAll({
-            include: ['Comments', 'Likes'],
+            include: ['Comments', 'Likes', 'User'],
             order: [['createdAt', 'DESC']]
         });
         return res.json({ stories })
@@ -25,7 +25,7 @@ router.get('/:id(\\d+)',
     asyncHandler(async (req, res) => {
         const { id } = req.params
         const story = await Story.findByPk(id, {
-            include: ['Comments', 'Likes']
+            include: ['Comments', 'Likes', 'User']
         });
         return res.json({ story })
     })
@@ -53,18 +53,18 @@ router.post('/new',
     })
 );
 
-// // Edit a story
-// router.post('/edit/:id(\\d+)',
-//     csrfProtection,
-//     asyncHandler(async (req, res) => {
-//         const { title, content } = req.body
-//         const { id } = req.params
-//         const story = await Story.findByPk(id)
+// Edit a story
+router.post('/edit/:id(\\d+)',
+    csrfProtection,
+    asyncHandler(async (req, res) => {
+        const { title, content } = req.body
+        const { id } = req.params
+        const story = await Story.findByPk(id)
 
-//         story.title = title
-//         story.content = content
-//         await story.save()
-//     })
-// )
+        story.title = title
+        story.content = content
+        await story.save()
+    })
+)
 
 module.exports = router;

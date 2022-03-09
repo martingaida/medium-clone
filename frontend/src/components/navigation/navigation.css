@@ -58,6 +58,16 @@
     cursor: pointer;
 }
 
+.btn-grey {
+    background-color: #979797;
+    border-radius: 2.2em;
+    border-style: none;
+    font-size: 0.9em;
+    color: white;
+    padding: 0.6em 0.9em 0.6em 0.9em;
+    margin: 0;
+}
+
 #main-logo {
     display: flex;
     flex-direction: row;
