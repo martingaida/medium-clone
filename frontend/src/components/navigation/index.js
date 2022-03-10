@@ -3,6 +3,7 @@ import { logout } from '../../store/session';
 import LoginFormModal from '../loginFormModal';
 import SignupFormModal from '../signupFormModal';
 import NewStoryModal from '../newStoryModal';
+import * as modals from '../../store/modals';
 import './navigation.css';
 
 const Navigation = () => {
@@ -26,7 +27,7 @@ const Navigation = () => {
                     {session && 
                         <>
                             <NewStoryModal />
-                            <button className='btn-grey' onClick={() => dispatch(logout())}>Log Out</button>
+                            <button className='btn-grey' onClick={() => {dispatch(logout()); dispatch(modals.allModalsOff())}}>Log Out</button>
                         </>
                     }
                 </div>
