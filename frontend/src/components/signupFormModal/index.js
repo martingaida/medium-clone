@@ -4,7 +4,6 @@ import SignupForm from '../signupForm';
 import * as modals from '../../store/modals';
 
 const LoginFormModal = () => {
-    // const [modalVisible, setModalVisible] = useState(false);
     const dispatch = useDispatch();
     const modalState = useSelector(state => state.modals.modals);
 
