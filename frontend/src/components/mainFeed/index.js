@@ -1,12 +1,14 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import EditStoryModal from '../editStoryModal';
+import { deleteStory } from '../../store/stories';
 
 import './mainFeed.css';
 
 const MainFeed = () => {
     const stories = useSelector(state => state.stories.stories)
     const session = useSelector(state => state.session.user)
+    const dispatch = useDispatch();
     
     return (
         <>
@@ -35,7 +37,7 @@ const MainFeed = () => {
                                         (story.User.id === session.id) && 
                                             <div className='mF-edit-delete'>
                                                 <EditStoryModal id={story.id}/>
-                                                <button className='btn-plain'>Delete</button> 
+                                                <button className='btn-plain' onClick={() => dispatch(deleteStory(story.id))}>Delete</button> 
                                             </div>
                                         : null}
                                 </div>

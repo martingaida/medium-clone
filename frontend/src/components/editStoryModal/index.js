@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Modal } from '../../context/modal';
 import EditStory from '../editStory';
-import './editStoryModal.css';
 
 const EditStoryModal = (id) => {
     const [modalVisible, setModalVisible] = useState(false);

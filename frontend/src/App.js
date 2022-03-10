@@ -12,12 +12,12 @@ import SplashPage from './components/splashpage';
 import MainFeed from './components/mainFeed';
 import NewStory from './components/newStory';
 
-function App(store) {
+function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(restoreUser());
     dispatch(fetchStories())
-  }, [store])
+  }, [dispatch])
 
   return (
     <>
