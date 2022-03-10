@@ -89,13 +89,13 @@ export const allModalsOff = () => {
     };
 };
 
-// const initialState = {
-//     sign_up: false,
-//     log_in: false,
-//     new_story: false,
-//     edit: false,
-//     delete: false
-// }
+const initialState = {
+    sign_up: null,
+    log_in: null,
+    new_story: null,
+    edit: null,
+    delete: null
+}
 
 export const modalsReducer = (state = {}, action) => {
     switch (action.type) {
