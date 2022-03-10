@@ -1,18 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { editStory, fetchStories } from '../../store/stories';
-// import EditStoryModal from '../editStoryModal';
-
+import * as modals from '../../store/modals';
 import './editStory.css';
 
-const EditStory = (id) => {
+const EditStory = (id, value) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const storyId = id.id.id;
     const dispatch = useDispatch();
     const story = useSelector(state => state.stories.stories)?.find(el => {if (el.id === storyId) return el});
     const userId = useSelector(state => state.session.user.id);
-    
+    // const modals = useSelector(state => state.modals);
+
     useEffect(() => {
         setTitle(story.title);
         setContent(story.content);
@@ -29,6 +29,7 @@ const EditStory = (id) => {
         }
         
         dispatch(editStory(story));
+        dispatch(modals.allModalsOff())
     }
 
     return (
@@ -54,7 +55,7 @@ const EditStory = (id) => {
                         onChange={(e) => setContent(e.target.value)}
                         placeholder='Content'
                     />
-                    <input className='btn-black' type='submit' value='Submit'/>
+                    <input className='btn-black' type='submit' value='Submit' />
                 </form>
             </div>
         </>
