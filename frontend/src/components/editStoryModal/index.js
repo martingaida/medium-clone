@@ -4,7 +4,6 @@ import EditStory from '../editStory';
 import * as modals from '../../store/modals';
 
 const EditStoryModal = (id, value) => {
-    // const [modalVisible, setModalVisible] = useState(false);
     const dispatch = useDispatch();
     const modalState = useSelector(state => state.modals.modals)
     // console.log('Modal State: ', modalState)

@@ -1,16 +1,16 @@
-const SIGN_IN_ON = 'modals/SIGNIN';
+const sign_up_ON = 'modals/SIGNIN';
 const LOG_IN_ON = 'modals/LOGIN';
 const NEW_STORY_ON = 'modals/NEW';
 const EDIT_ON = 'modals/EDIT';
 const DELETE_ON = 'modals/DELETE';
 const ALL_OFF = 'modals/OFF';
 
-export const signinModalOn = () => {
+export const signupModalOn = () => {
 
     return {
-        type: SIGN_IN_ON,
+        type: sign_up_ON,
         payload: {
-            sign_in: true,
+            sign_up: true,
             log_in: false,
             new_story: false,
             edit: false,
@@ -24,7 +24,7 @@ export const loginModalOn = () => {
     return {
         type: LOG_IN_ON,
         payload: {
-            sign_in: false,
+            sign_up: false,
             log_in: true,
             new_story: false,
             edit: false,
@@ -38,7 +38,7 @@ export const newStoryModalOn = () => {
     return {
         type: NEW_STORY_ON,
         payload: {
-            sign_in: false,
+            sign_up: false,
             log_in: false,
             new_story: true,
             edit: false,
@@ -52,7 +52,7 @@ export const editModalOn = () => {
     return {
         type: EDIT_ON,
         payload: {
-            sign_in: false,
+            sign_up: false,
             log_in: false,
             new_story: false,
             edit: true,
@@ -66,7 +66,7 @@ export const deleteModalOn = () => {
     return {
         type: DELETE_ON,
         payload: {
-            sign_in: false,
+            sign_up: false,
             log_in: false,
             new_story: false,
             edit: false,
@@ -80,7 +80,7 @@ export const allModalsOff = () => {
     return {
         type: ALL_OFF,
         payload: {
-            sign_in: false,
+            sign_up: false,
             log_in: false,
             new_story: false,
             edit: false,
@@ -96,7 +96,7 @@ export const modalsReducer = (state = {}, action) => {
             newState.modals = action.payload
             return newState
         }
-        case SIGN_IN_ON: {
+        case sign_up_ON: {
             const newState = {...state}
             newState.modals = action.payload
             return newState
