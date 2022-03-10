@@ -14,7 +14,6 @@ import NewStory from './components/newStory';
 
 function App() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(restoreUser());
     dispatch(fetchStories())

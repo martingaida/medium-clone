@@ -64,6 +64,19 @@ router.post('/edit/:id(\\d+)',
         story.title = title
         story.content = content
         await story.save()
+        res.redirect('/')
+    })
+)
+
+// Delete a story
+router.post('/delete/:id(\\d+)', 
+    csrfProtection,
+    asyncHandler(async (req, res) => {
+        const { id } = req.params
+        const story = await Story.findByPk(id)
+
+        await story.destroy()
+        res.redirect('/')
     })
 )
 

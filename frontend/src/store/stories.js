@@ -33,6 +33,26 @@ export const fetchStories = () => async (dispatch) => {
     dispatch(populateStories(data.stories))
 }
 
+export const editStory = (story) => async (dispatch) => {
+    const { storyId, userId, title, content } = story;
+    await csrfFetch(`/api/stories/edit/${storyId}`, {
+        method: 'POST',
+        body: JSON.stringify({
+            userId,
+            title,
+            content
+        })
+    });
+    dispatch(fetchStories())
+}
+
+export const deleteStory = (id) => async (dispatch) => {
+    await csrfFetch(`/api/stories/delete/${id}`, {
+        method: 'POST'
+    });
+    dispatch(fetchStories())
+}
+
 export const storiesReducer = (state = {}, action) => {
     switch (action.type) {
         case POPULATE_STORIES: {
