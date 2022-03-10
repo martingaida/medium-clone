@@ -6,14 +6,14 @@ import * as modals from '../../store/modals';
 
 const SignupFormModal = () => {
     const dispatch = useDispatch();
-    const modalState = useSelector(state => state.modals.modals);
-    const [modalVisible, setModalVisible] = useState(false);
+    const modalState = useSelector(state => state.modals.modals)
+    // const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <>
-            <button className='btn-black' onClick={() => setModalVisible(true)}>Get started</button>
-            {modalVisible && (
-                <Modal onClose={() => setModalVisible(false)}>
+            <button className='btn-black' onClick={() => dispatch(modals.signupModalOn())}>Get started</button>
+            {modalState.sign_up && (
+                <Modal onClose={() => dispatch(modals.allModalsOff())}>
                     <SignupForm />
                 </Modal>
             )}
