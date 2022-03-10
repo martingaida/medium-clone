@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../store/session';
-import SignupFormModal from '../signupFormModal';
+// import SignupFormModal from '../signupFormModal';
+import * as modals from '../../store/modals';
 import './loginForm.css';
 
 function LoginForm() {
@@ -37,6 +38,7 @@ function LoginForm() {
                 if (data && data.errors) setErrors(data.errors)
             });
         reset()
+        // dispatch(modals.allModalsOff())
     };
 
     return (

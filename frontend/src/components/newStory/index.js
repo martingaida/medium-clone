@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { createStory } from '../../store/stories';
+import * as modals from '../../store/modals';
 
 import './newStory.css';
 
@@ -22,6 +23,7 @@ const NewStory = () => {
         }
 
         dispatch(createStory(story));
+        dispatch(modals.allModalsOff());
     }
 
     return (

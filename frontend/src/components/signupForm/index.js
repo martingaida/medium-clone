@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { signup } from '../../store/session';
 // import LoginFormModal from '../loginFormModal';
+import * as modals from '../../store/modals';
 import './signupForm.css';
 
 const SignupForm = () => {
@@ -65,6 +66,7 @@ const SignupForm = () => {
         if (!errors) {
             history.push('/')
             reset()
+            dispatch(modals.allModalsOff())
         }
     };
 
