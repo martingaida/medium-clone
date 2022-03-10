@@ -1,4 +1,4 @@
-const sign_up_ON = 'modals/SIGNIN';
+const SIGN_UP_ON = 'modals/SIGNIN';
 const LOG_IN_ON = 'modals/LOGIN';
 const NEW_STORY_ON = 'modals/NEW';
 const EDIT_ON = 'modals/EDIT';
@@ -8,7 +8,7 @@ const ALL_OFF = 'modals/OFF';
 export const signupModalOn = () => {
 
     return {
-        type: sign_up_ON,
+        type: SIGN_UP_ON,
         payload: {
             sign_up: true,
             log_in: false,
@@ -89,6 +89,14 @@ export const allModalsOff = () => {
     };
 };
 
+// const initialState = {
+//     sign_up: false,
+//     log_in: false,
+//     new_story: false,
+//     edit: false,
+//     delete: false
+// }
+
 export const modalsReducer = (state = {}, action) => {
     switch (action.type) {
         case LOG_IN_ON: {
@@ -96,7 +104,7 @@ export const modalsReducer = (state = {}, action) => {
             newState.modals = action.payload
             return newState
         }
-        case sign_up_ON: {
+        case SIGN_UP_ON: {
             const newState = {...state}
             newState.modals = action.payload
             return newState

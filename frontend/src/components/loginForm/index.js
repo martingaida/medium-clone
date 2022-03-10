@@ -38,7 +38,7 @@ function LoginForm() {
                 if (data && data.errors) setErrors(data.errors)
             });
         reset()
-        dispatch(modals.allModalsOff())
+        // dispatch(modals.allModalsOff())
     };
 
     return (
