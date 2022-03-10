@@ -47,7 +47,7 @@ export const newStoryModalOn = () => {
     };
 };
 
-export const editModalOn = () => {
+export const editModalOn = (id) => {
 
     return {
         type: EDIT_ON,
@@ -55,7 +55,7 @@ export const editModalOn = () => {
             sign_up: false,
             log_in: false,
             new_story: false,
-            edit: true,
+            edit: id,
             delete: false
         }
     };

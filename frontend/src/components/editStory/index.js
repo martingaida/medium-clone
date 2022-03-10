@@ -4,14 +4,14 @@ import { editStory, fetchStories } from '../../store/stories';
 import * as modals from '../../store/modals';
 import './editStory.css';
 
-const EditStory = (id, value) => {
+const EditStory = (id) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const storyId = id.id.id;
     const dispatch = useDispatch();
+    const modalState = useSelector(state => state.modals);
+    const storyId = modalState.modals.edit;
     const story = useSelector(state => state.stories.stories)?.find(el => {if (el.id === storyId) return el});
     const userId = useSelector(state => state.session.user.id);
-    // const modals = useSelector(state => state.modals);
 
     useEffect(() => {
         setTitle(story.title);
@@ -35,7 +35,7 @@ const EditStory = (id, value) => {
     return (
         <>
             <div className='nav-bar-space-filler'/>
-            <h1>Edit story form.</h1>
+            <h1>Edit story #{storyId} form.</h1>
             <div className='form-content-main'>
                 <form onSubmit={handleSubmit}>
                     <input

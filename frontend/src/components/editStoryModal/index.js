@@ -9,14 +9,14 @@ const EditStoryModal = (id) => {
     // console.log('Modal State: ', modalState.edit)
     return (
         <>
-            <button className='btn-black' onClick={() => dispatch(modals.editModalOn())}>Edit Story</button>
+            <button className='btn-black' onClick={() => dispatch(modals.editModalOn(id.id))}>Edit Story #{id.id}</button>
             {modalState?.edit && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
-                    <EditStory id={id} />    
+                    <EditStory />    
                 </Modal>
             )}
         </>
     )
-}
+};
 
 export default EditStoryModal;

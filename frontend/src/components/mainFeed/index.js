@@ -31,7 +31,7 @@ const MainFeed = () => {
                                     <div className='mF-story-info'>
                                         <p>{story.createdAt}</p>
                                         <p>5 min read</p>
-                                        <p className='mF-story-tag'>Politics</p>
+                                        <p className='mF-story-tag'>Category</p>
                                     </div>
                                     {session ? 
                                         (story.User.id === session.id) && 
