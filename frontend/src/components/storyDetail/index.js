@@ -1,29 +1,26 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom'
 import EditStoryModal from '../editStoryModal';
 import { deleteStory } from '../../store/stories';
-import { useState } from 'react';
-import './mainFeed.css';
+import { useParams } from 'react-router-dom';
+import './storyDetail.css';
 
-const MainFeed = () => {
+const StoryDetail = () => {
     const stories = useSelector(state => state.stories.stories)
     const session = useSelector(state => state.session.user)
     const dispatch = useDispatch();
-    const history = useHistory();
+    const { id } = useParams();
     
-    const changeRoute = (id) => {
-        history.push(`/story/${id}`)
-    }
-
     return (
         <>
+            <div className='nav-bar-space-background'/>
+            <div className='nav-bar-space-filler'/>
             <div className='mF-content-main'>
                 <div className='mF-content-story'>
-                    <div className='mF-story-details'>
+                    <div className='mF-story-details' onClick={() => console.log('Params id: ', id)}>
                         {stories?.map(story => {
                             
                             return (
-                                <div key={story.id} onClick={() => changeRoute(story.id)}>
+                                <div key={story.id}>
                                     <div className='mF-story-author'>
                                         <img className='mF-author-profile' src={require('../../assets/avatars/hal9000.png')}/>
                                         <p>{story.User.username}</p>
@@ -56,4 +53,4 @@ const MainFeed = () => {
     )
 };
 
-export default MainFeed;
+export default StoryDetail;
