@@ -64,6 +64,7 @@ router.post('/edit/:id(\\d+)',
         story.title = title
         story.content = content
         await story.save()
+        res.redirect('/')
     })
 )
 

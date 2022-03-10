@@ -17,6 +17,19 @@ export const createStory = (story) => async (dispatch) => {
     return dispatch(fetchStories());
 }
 
+export const editStory = (story) => async (dispatch) => {
+    const { storyId, userId, title, content } = story;
+    const response = await csrfFetch(`/api/stories/edit/${storyId}`, {
+        method: 'POST',
+        body: JSON.stringify({
+            userId,
+            title,
+            content
+        })
+    });
+    dispatch(fetchStories())
+}
+
 export const populateStories = (stories) => {
 
     return {
