@@ -13,7 +13,7 @@ const NewStoryModal = () => {
     return (
         <>
             <button className='btn-black' onClick={() => dispatch(modals.newStoryModalOn())}>New Story</button>
-            {modalState.new_story && (
+            {modalState?.new_story && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
                     <NewStory />    
                 </Modal>

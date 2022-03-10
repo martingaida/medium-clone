@@ -12,7 +12,7 @@ const SignupFormModal = () => {
     return (
         <>
             <button className='btn-black' onClick={() => dispatch(modals.signupModalOn())}>Get started</button>
-            {modalState.sign_up && (
+            {modalState?.sign_up && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
                     <SignupForm />
                 </Modal>
