@@ -60,6 +60,23 @@ export const login = (user) => async (dispatch) => {
     return response;
 };
 
+export const demoLogin = () => async (dispatch) => {
+    const credential = 'TermiNator';
+    const password = 't800t800';
+
+    const response = await csrfFetch('/api/session', {
+        method: 'POST',
+        body: JSON.stringify({
+            credential,
+            password
+        })
+    });
+    const data = await response.json();
+
+    dispatch(createSession(data.user));
+    return response;
+};
+
 export const logout = () => async (dispatch) => {
     const response = await csrfFetch('/api/session', {
         method: 'DELETE',

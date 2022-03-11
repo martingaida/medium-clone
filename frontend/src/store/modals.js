@@ -209,5 +209,5 @@ export const modalsReducer = (state = {}, action) => {
         }
         default:
             return state;
-    }
+    };
 };
