@@ -10,10 +10,7 @@ const StoryDetail = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-    
-    const story = stories?.filter(story => story.id === parseInt(id));
-    // console.log(story);
-    // console.log(id);
+    console.log(stories)
 
     return (
         <>
@@ -26,28 +23,37 @@ const StoryDetail = () => {
                             {stories?.map(story => {
                                 if (story.id === parseInt(id)) {
                                     return (
-                                        <div className='mF-story-details'>
-                                            <div className='mF-story-author'>
-                                                <img className='mF-author-profile' src={require('../../assets/avatars/hal9000.png')}/>
-                                                <p>{story.User.username}</p>
-                                            </div>
-                                            <div className='mF-story-title'>
-                                                <h2>{story.title}</h2>
-                                            </div>
-                                            <div className='mF-story'>
-                                                <p>{story.content}</p>
-                                            </div>
-                                            <div className='mF-story-info'>
-                                                <p>{story.createdAt}</p>
-                                                <p>5 min read</p>
-                                                <p className='mF-story-tag'>Category</p>
-                                            </div>
-                                            {(story.User.id === session.id) && 
-                                                <div className='mF-edit-delete'>
-                                                    <EditStoryModal id={story.id}/>
-                                                    <button className='btn-plain' onClick={() => dispatch(deleteStory(story.id))}>Delete</button> 
+                                        <div className='sD-main-content' key={story.id}>
+                                            <div className='mF-story-details'>
+                                                <div className='mF-story-author'>
+                                                    <img className='mF-author-profile' src={require('../../assets/avatars/hal9000.png')}/>
+                                                    <p>{story.User.username}</p>
                                                 </div>
-                                            }
+                                                <div className='mF-story-title'>
+                                                    <h2>{story.title}</h2>
+                                                </div>
+                                                <div className='mF-story'>
+                                                    <p>{story.content}</p>
+                                                </div>
+                                                <div className='mF-story-info'>
+                                                    <p>{story.createdAt}</p>
+                                                    <p>5 min read</p>
+                                                    <p className='mF-story-tag'>Category</p>
+                                                </div>
+                                                {(story.User.id === session.id) && 
+                                                    <div className='mF-edit-delete'>
+                                                        <EditStoryModal id={story.id}/>
+                                                        <button className='btn-plain' onClick={() => dispatch(deleteStory(story.id))}>Delete</button> 
+                                                    </div>
+                                                }
+                                            </div>
+                                            {story.Comments?.map(comment => {
+                                                return (
+                                                    <div className='sD-comments-container' key={comment.id}>
+                                                        <h3>{comment.content}</h3>
+                                                    </div>
+                                                )
+                                            })}
                                         </div>
                                     )
                                 }
