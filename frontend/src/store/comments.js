@@ -13,7 +13,7 @@ export const createComment = (comment) => async (dispatch) => {
             content
         })
     });
-    console.log('create Comment => before dispatch')
+
     return dispatch(fetchComments())
 };
 
@@ -26,18 +26,36 @@ export const populateComments = (comments) => {
 };
 
 export const fetchComments = () => async (dispatch) => {
+
     const response = await csrfFetch('/api/comments', {
         method: 'GET'
     })
+
     const data = await response.json();
-    console.log('fetchComments Data: ',data)
     dispatch(populateComments(data.comments))
 };
 
+export const editComment = (comment) => async (dispatch) => {
+
+    const { id, userId, story_id, content } = comment;
+    await csrfFetch(`/api/comments/edit/${id}`, {
+        method: 'POST',
+        body: JSON.stringify({
+            userId,
+            storyId: story_id,
+            content
+        })
+    });
+
+    return dispatch(fetchComments())
+};
+
 export const deleteComment = (id) => async (dispatch) => {
+
     await csrfFetch(`/api/comments/delete/${id}`, {
         method: 'POST'
     });
+    
     dispatch(fetchComments())
 };
 

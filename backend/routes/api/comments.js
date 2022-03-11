@@ -42,6 +42,21 @@ router.get('/',
     })
 );
 
+// Edit a comment
+router.post('/edit/:id(\\d+)', 
+    csrfProtection,
+    asyncHandler(async (req, res) => {
+        const { id } = req.params
+        const { content } = req.body
+        const comment = await Comment.findByPk(id)
+
+        comment.content = content
+
+        await comment.save()
+        res.redirect('/')
+    })
+);
+
 // Delete comment
 router.post('/delete/:id(\\d+)',
     csrfProtection,

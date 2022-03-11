@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import EditStoryModal from '../editStoryModal';
 import NewCommentModal from '../newCommentModal';
+import EditCommentModal from '../editCommentModal';
 import { deleteStory } from '../../store/stories';
 import { fetchComments } from '../../store/comments';
 import { deleteComment } from '../../store/comments';
@@ -67,7 +68,7 @@ const StoryDetail = () => {
                                                             </div>
                                                             {(comment.userId === session.id) && 
                                                                 <div className='mF-edit-delete'>
-                                                                    <button className='btn-grey'>Edit Comment</button>
+                                                                    <EditCommentModal commentId={comment.id}/>
                                                                     <button className='btn-plain' onClick={() => dispatch(deleteComment(comment.id))}>Delete</button>
                                                                 </div>
                                                             }

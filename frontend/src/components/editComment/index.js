@@ -1,34 +1,44 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-import { createComment, fetchComments } from '../../store/comments';
+import { useEffect, useState } from 'react';
+import { editComment } from '../../store/comments';
 import * as modals from '../../store/modals';
-import './newComment.css';
+import './editComment.css';
 
-const NewComment = (storyId) => {
+const EditComment = () => {
     const [content, setContent] = useState('');
 
     const dispatch = useDispatch();
+    const modalState = useSelector(state => state.modals);
+    const commentId = modalState.modals.comment_edit;
     const session = useSelector(state => state.session.user);
     const userId = session.id;
-    const story_id = storyId.storyId.storyId
+    const comment_id = commentId.commentId;
+    const comment = useSelector(state => state.comments.comments)?.find(el => {if (el.id === comment_id) return el})
+
+    const storyId = comment?.storyId
+
+    useEffect(() => {
+        setContent(comment.content);
+    },[])
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         const comment = {
+            id: comment_id,
             userId,
-            story_id,
+            storyId,
             content
         }
-        
-        dispatch(createComment(comment));
+
+        dispatch(editComment(comment));
         dispatch(modals.allModalsOff());
     }
 
     return (
         <>
             <div className='nav-bar-space-filler'/>
-            <h1>New comment form.</h1>
+            <h1>Edit comment form.</h1>
             <div className='form-content-main'>
                 <form onSubmit={handleSubmit}>
                     <input
@@ -46,4 +56,4 @@ const NewComment = (storyId) => {
     )
 }
 
-export default NewComment;
+export default EditComment;

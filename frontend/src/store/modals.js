@@ -112,7 +112,7 @@ export const newCommentModalOn = () => {
     };
 }
 
-export const editCommentModalOn = () => {
+export const editCommentModalOn = (id) => {
 
     return {
         type: EDIT_COMMENT,
@@ -123,7 +123,7 @@ export const editCommentModalOn = () => {
             edit: false,
             delete: false,
             comment_new: false,
-            comment_edit: true,
+            comment_edit: id,
             comment_delete: false
         }
     };
