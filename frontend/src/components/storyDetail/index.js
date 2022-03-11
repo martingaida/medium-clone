@@ -11,8 +11,8 @@ const StoryDetail = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-    console.log(stories)
-
+    
+    
     return (
         <>
             {session ?

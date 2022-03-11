@@ -65,7 +65,7 @@ export const createComment = (comment) => async (dispatch) => {
             content
         })
     });
-    dispatch(fetchStories())
+    return dispatch(fetchStories())
 };
 
 export const storiesReducer = (state = {}, action) => {
