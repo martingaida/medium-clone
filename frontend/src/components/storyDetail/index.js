@@ -1,18 +1,25 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import EditStoryModal from '../editStoryModal';
 import NewCommentModal from '../newCommentModal';
 import { deleteStory } from '../../store/stories';
-import { useHistory, useParams } from 'react-router-dom';
+import { fetchComments } from '../../store/comments';
 import './storyDetail.css';
 
 const StoryDetail = () => {
     const stories = useSelector(state => state.stories.stories);
     const session = useSelector(state => state.session.user);
+    const comments = useSelector(state => state.comments.comments)
+
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
     
-    
+    useEffect(() => {
+        dispatch(fetchComments());
+    },[dispatch])
+
     return (
         <>
             {session ?
@@ -50,20 +57,21 @@ const StoryDetail = () => {
                                             </div>
                                             <div className='sD-comments-container'>
                                                 <NewCommentModal storyId={story.id}/>
-                                            {story.Comments?.map(comment => {
-                                                return (
-                                                    <div key={comment.id}>
-                                                        <div className='sD-comments-main'>
-                                                            <h3>{comment.content}</h3>
-                                                        </div>
-                                                        {(comment.userId === session.id) && 
-                                                            <div className='mF-edit-delete'>
-                                                                <button className='btn-grey'>Edit Comment</button>
-                                                                <button className='btn-plain'>Delete</button>
+                                            {comments?.map(comment => {
+                                                if (comment.storyId === story.id) 
+                                                    return (
+                                                        <div key={comment.id}>
+                                                            <div className='sD-comments-main'>
+                                                                <h3>{comment.content}</h3>
                                                             </div>
-                                                        }
-                                                    </div>
-                                                )
+                                                            {(comment.userId === session.id) && 
+                                                                <div className='mF-edit-delete'>
+                                                                    <button className='btn-grey'>Edit Comment</button>
+                                                                    <button className='btn-plain'>Delete</button>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    )
                                             })}
                                             </div>
                                         </div>

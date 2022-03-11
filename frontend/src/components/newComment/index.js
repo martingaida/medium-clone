@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { createComment } from '../../store/stories';
+import { createComment, fetchComments } from '../../store/comments';
 import * as modals from '../../store/modals';
 import './newComment.css';
 

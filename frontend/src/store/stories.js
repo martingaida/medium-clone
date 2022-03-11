@@ -2,9 +2,7 @@ import { csrfFetch } from './csrf';
 import { useState } from 'react';
 
 const POPULATE_STORIES = 'stories/ALL';
-const CREATE_COMMENT = 'comments/NEW';
 
-// STORIES:
 export const createStory = (story) => async (dispatch) => {
     const { userId, title, content } = story;
     const response = await csrfFetch('/api/stories/new', {
@@ -15,9 +13,9 @@ export const createStory = (story) => async (dispatch) => {
             content
         })
     });
-    // dispatch reducer to update state
+
     return dispatch(fetchStories());
-}
+};
 
 export const populateStories = (stories) => {
 
@@ -53,20 +51,21 @@ export const deleteStory = (id) => async (dispatch) => {
         method: 'POST'
     });
     dispatch(fetchStories())
-}
-// COMMENTS:
-export const createComment = (comment) => async (dispatch) => {
-    const { userId, story_id, content } = comment;
-    await csrfFetch('/api/comments/new', {
-        method: 'POST',
-        body: JSON.stringify({
-            userId,
-            storyId: story_id,
-            content
-        })
-    });
-    return dispatch(fetchStories())
 };
+
+// COMMENTS:
+// export const createComment = (comment) => async (dispatch) => {
+//     const { userId, story_id, content } = comment;
+//     await csrfFetch('/api/comments/new', {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             userId,
+//             storyId: story_id,
+//             content
+//         })
+//     });
+//     return dispatch(fetchStories())
+// };
 
 export const storiesReducer = (state = {}, action) => {
     switch (action.type) {
@@ -76,6 +75,6 @@ export const storiesReducer = (state = {}, action) => {
             return newState
         }
         default:
-            return state;
+            return state
     }
-}
+};

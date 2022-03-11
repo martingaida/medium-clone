@@ -20,12 +20,25 @@ router.post('/new',
                 content
             })
             // res.redirect(`/story/${storyId}`)
-            // res.redirect('/')
+            res.redirect('/')
         } else {
             const errors = validationErrors.array().map(error => error.msg)
             console.log(errors)
-            res.redirect('/comments/new')
+            // res.redirect('/comments/new')
         }
+    })
+);
+
+// Fetch all comments
+router.get('/',
+    csrfProtection,
+    asyncHandler(async (req, res) => {
+        const comments = await Comment.findAll({
+            include: ['User', 'Story'],
+            order: [['createdAt', 'DESC']]
+        });
+
+        return res.json({ comments })
     })
 );
 
