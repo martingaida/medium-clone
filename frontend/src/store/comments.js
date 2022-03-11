@@ -34,6 +34,13 @@ export const fetchComments = () => async (dispatch) => {
     dispatch(populateComments(data.comments))
 };
 
+export const deleteComment = (id) => async (dispatch) => {
+    await csrfFetch(`/api/comments/delete/${id}`, {
+        method: 'POST'
+    });
+    dispatch(fetchComments())
+};
+
 export const commentsReducer = (state = {}, action) => {
     switch (action.type) {
         case POPULATE_COMMENTS: {

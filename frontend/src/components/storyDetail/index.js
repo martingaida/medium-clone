@@ -5,6 +5,7 @@ import EditStoryModal from '../editStoryModal';
 import NewCommentModal from '../newCommentModal';
 import { deleteStory } from '../../store/stories';
 import { fetchComments } from '../../store/comments';
+import { deleteComment } from '../../store/comments';
 import './storyDetail.css';
 
 const StoryDetail = () => {
@@ -67,12 +68,13 @@ const StoryDetail = () => {
                                                             {(comment.userId === session.id) && 
                                                                 <div className='mF-edit-delete'>
                                                                     <button className='btn-grey'>Edit Comment</button>
-                                                                    <button className='btn-plain'>Delete</button>
+                                                                    <button className='btn-plain' onClick={() => dispatch(deleteComment(comment.id))}>Delete</button>
                                                                 </div>
                                                             }
                                                         </div>
                                                     )
-                                            })}
+                                                })
+                                            }
                                             </div>
                                         </div>
                                     )

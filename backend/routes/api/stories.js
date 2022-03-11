@@ -67,7 +67,7 @@ router.post('/edit/:id(\\d+)',
         await story.save()
         res.redirect('/')
     })
-)
+);
 
 // Delete a story
 router.post('/delete/:id(\\d+)', 
@@ -79,6 +79,6 @@ router.post('/delete/:id(\\d+)',
         await story.destroy()
         res.redirect('/')
     })
-)
+);
 
 module.exports = router;

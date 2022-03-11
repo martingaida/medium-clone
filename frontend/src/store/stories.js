@@ -53,20 +53,6 @@ export const deleteStory = (id) => async (dispatch) => {
     dispatch(fetchStories())
 };
 
-// COMMENTS:
-// export const createComment = (comment) => async (dispatch) => {
-//     const { userId, story_id, content } = comment;
-//     await csrfFetch('/api/comments/new', {
-//         method: 'POST',
-//         body: JSON.stringify({
-//             userId,
-//             storyId: story_id,
-//             content
-//         })
-//     });
-//     return dispatch(fetchStories())
-// };
-
 export const storiesReducer = (state = {}, action) => {
     switch (action.type) {
         case POPULATE_STORIES: {

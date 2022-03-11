@@ -42,4 +42,16 @@ router.get('/',
     })
 );
 
+// Delete comment
+router.post('/delete/:id(\\d+)',
+    csrfProtection,
+    asyncHandler(async (req, res) => {
+        const { id } = req.params
+        const comment = await Comment.findByPk(id)
+
+        await comment.destroy()
+        res.redirect('/')
+    })
+);
+
 module.exports = router;
