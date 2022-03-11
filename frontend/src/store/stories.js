@@ -13,9 +13,9 @@ export const createStory = (story) => async (dispatch) => {
             content
         })
     });
-    // dispatch reducer to update state
+
     return dispatch(fetchStories());
-}
+};
 
 export const populateStories = (stories) => {
 
@@ -31,7 +31,7 @@ export const fetchStories = () => async (dispatch) => {
     })
     const data = await response.json();
     dispatch(populateStories(data.stories))
-}
+};
 
 export const editStory = (story) => async (dispatch) => {
     const { storyId, userId, title, content } = story;
@@ -44,14 +44,14 @@ export const editStory = (story) => async (dispatch) => {
         })
     });
     dispatch(fetchStories())
-}
+};
 
 export const deleteStory = (id) => async (dispatch) => {
     await csrfFetch(`/api/stories/delete/${id}`, {
         method: 'POST'
     });
     dispatch(fetchStories())
-}
+};
 
 export const storiesReducer = (state = {}, action) => {
     switch (action.type) {
@@ -61,6 +61,6 @@ export const storiesReducer = (state = {}, action) => {
             return newState
         }
         default:
-            return state;
+            return state
     }
-}
+};

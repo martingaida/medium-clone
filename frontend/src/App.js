@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import Home from './components/home';
 import { restoreUser } from './store/session';
 import { fetchStories } from './store/stories';
+import { fetchComments } from './store/comments';
 
 import Navigation from './components/navigation';
 import SplashPage from './components/splashpage';
@@ -12,9 +13,10 @@ import StoryDetail from './components/storyDetail';
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(restoreUser());
-    dispatch(fetchStories())
+    dispatch(fetchStories());
   }, [dispatch])
 
   return (

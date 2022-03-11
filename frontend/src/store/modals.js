@@ -3,6 +3,11 @@ const LOG_IN_ON = 'modals/LOGIN';
 const NEW_STORY_ON = 'modals/NEW';
 const EDIT_ON = 'modals/EDIT';
 const DELETE_ON = 'modals/DELETE';
+
+const NEW_COMMENT = 'comments/NEW';
+const EDIT_COMMENT = 'comments/EDIT';
+const DELETE_COMMENT = 'comments/DELETE';
+
 const ALL_OFF = 'modals/OFF';
 
 export const signupModalOn = () => {
@@ -14,7 +19,10 @@ export const signupModalOn = () => {
             log_in: false,
             new_story: false,
             edit: false,
-            delete: false
+            delete: false,
+            comment_new: false,
+            comment_edit: false,
+            comment_delete: false
         }
     };
 };
@@ -28,7 +36,10 @@ export const loginModalOn = () => {
             log_in: true,
             new_story: false,
             edit: false,
-            delete: false
+            delete: false,
+            comment_new: false,
+            comment_edit: false,
+            comment_delete: false
         }
     };
 };
@@ -42,7 +53,10 @@ export const newStoryModalOn = () => {
             log_in: false,
             new_story: true,
             edit: false,
-            delete: false
+            delete: false,
+            comment_new: false,
+            comment_edit: false,
+            comment_delete: false
         }
     };
 };
@@ -56,7 +70,10 @@ export const editModalOn = (id) => {
             log_in: false,
             new_story: false,
             edit: id,
-            delete: false
+            delete: false,
+            comment_new: false,
+            comment_edit: false,
+            comment_delete: false
         }
     };
 };
@@ -70,10 +87,64 @@ export const deleteModalOn = () => {
             log_in: false,
             new_story: false,
             edit: false,
-            delete: true
+            delete: true,
+            comment_new: false,
+            comment_edit: false,
+            comment_delete: false
         }
     };
 };
+
+export const newCommentModalOn = () => {
+
+    return {
+        type: NEW_COMMENT,
+        payload: {
+            sign_up: false,
+            log_in: false,
+            new_story: false,
+            edit: false,
+            delete: false,
+            comment_new: true,
+            comment_edit: false,
+            comment_delete: false
+        }
+    };
+}
+
+export const editCommentModalOn = (id) => {
+
+    return {
+        type: EDIT_COMMENT,
+        payload: {
+            sign_up: false,
+            log_in: false,
+            new_story: false,
+            edit: false,
+            delete: false,
+            comment_new: false,
+            comment_edit: id,
+            comment_delete: false
+        }
+    };
+}
+
+export const deleteCommentModalOn = () => {
+
+    return {
+        type: DELETE_COMMENT,
+        payload: {
+            sign_up: false,
+            log_in: false,
+            new_story: false,
+            edit: false,
+            delete: false,
+            comment_new: false,
+            comment_edit: false,
+            comment_delete: true
+        }
+    };
+}
 
 export const allModalsOff = () => {
 
@@ -117,6 +188,21 @@ export const modalsReducer = (state = {}, action) => {
             return newState
         }
         case ALL_OFF: {
+            const newState = {...state}
+            newState.modals = action.payload
+            return newState
+        }
+        case NEW_COMMENT: {
+            const newState = {...state}
+            newState.modals = action.payload
+            return newState
+        }
+        case EDIT_COMMENT: {
+            const newState = {...state}
+            newState.modals = action.payload
+            return newState
+        }
+        case DELETE_COMMENT: {
             const newState = {...state}
             newState.modals = action.payload
             return newState

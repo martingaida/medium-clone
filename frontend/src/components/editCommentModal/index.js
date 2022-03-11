@@ -1,24 +1,25 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../../context/modal';
-import NewStory from '../newStory';
+import NewComment from '../newComment';
+import EditComment from '../editComment';
 import * as modals from '../../store/modals';
-import './newStoryModal.css';
+import './editCommentModal.css';
 
-const NewStoryModal = () => {
+const EditCommentModal = (commentId) => {
     const dispatch = useDispatch();
     const modalState = useSelector(state => state.modals.modals);
 
     return (
         <>
-            <button className='btn-black' onClick={() => dispatch(modals.newStoryModalOn())}>New Story</button>
-            {modalState?.new_story && (
+            <button className='btn-black' onClick={() => dispatch(modals.editCommentModalOn(commentId))}>Edit Comment</button>
+            {modalState?.comment_edit && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
-                    <NewStory />    
+                    <EditComment />    
                 </Modal>
             )}
         </>
     )
 }
 
-export default NewStoryModal;
+export default EditCommentModal;

@@ -45,7 +45,7 @@ const MainFeed = () => {
                                                 <EditStoryModal id={story.id}/>
                                                 <button className='btn-plain' onClick={() => dispatch(deleteStory(story.id))}>Delete</button> 
                                             </div>
-                                        : null}
+                                    : null}
                                 </div>
                             )
                         })}
