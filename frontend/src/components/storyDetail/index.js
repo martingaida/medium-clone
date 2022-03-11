@@ -50,8 +50,17 @@ const StoryDetail = () => {
                                             {story.Comments?.map(comment => {
                                                 return (
                                                     <div className='sD-comments-container' key={comment.id}>
-                                                        <h3>{comment.content}</h3>
+                                                        <div className='sD-comments-main'>
+                                                            <h3>{comment.content}</h3>
+                                                        </div>
+                                                        {(comment.userId === session.id) && 
+                                                            <div className='mF-edit-delete'>
+                                                                <button className='btn-black'>Edit Comment</button>
+                                                                <button className='btn-plain'>Delete</button>
+                                                            </div>
+                                                        }
                                                     </div>
+
                                                 )
                                             })}
                                         </div>
