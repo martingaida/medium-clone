@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import EditStoryModal from '../editStoryModal';
+import NewCommentModal from '../newCommentModal';
 import { deleteStory } from '../../store/stories';
 import { useHistory, useParams } from 'react-router-dom';
 import './storyDetail.css';
@@ -47,22 +48,24 @@ const StoryDetail = () => {
                                                     </div>
                                                 }
                                             </div>
+                                            <div className='sD-comments-container'>
+                                                <NewCommentModal storyId={story.id}/>
                                             {story.Comments?.map(comment => {
                                                 return (
-                                                    <div className='sD-comments-container' key={comment.id}>
+                                                    <div key={comment.id}>
                                                         <div className='sD-comments-main'>
                                                             <h3>{comment.content}</h3>
                                                         </div>
                                                         {(comment.userId === session.id) && 
                                                             <div className='mF-edit-delete'>
-                                                                <button className='btn-black'>Edit Comment</button>
+                                                                <button className='btn-grey'>Edit Comment</button>
                                                                 <button className='btn-plain'>Delete</button>
                                                             </div>
                                                         }
                                                     </div>
-
                                                 )
                                             })}
+                                            </div>
                                         </div>
                                     )
                                 }

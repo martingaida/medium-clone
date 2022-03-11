@@ -15,6 +15,7 @@ router.get('/',
             include: ['Comments', 'Likes', 'User'],
             order: [['createdAt', 'DESC']]
         });
+        
         return res.json({ stories })
     })
 );
