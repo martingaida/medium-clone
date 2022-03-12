@@ -22,8 +22,9 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-    width: 678px;
-    height: 695px;
+    padding: 3em;
+    /* width: 678px;
+    height: 695px; */
     border-radius: 5px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }

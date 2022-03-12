@@ -7,7 +7,7 @@
     width: 100vw;
     height: 30em;
     border-bottom: 0.06em solid black;
-    background-color: rgba(109, 195, 248, 0.5);
+    background-color: #a7dcfd;
 }
 
 .sP-content-center {
@@ -63,6 +63,14 @@
     width: 100vw;
     height: 4.7em;
     background-color: white;
+}
+
+.nav-bar-space-background-blue {
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 4.7em;
+    background-color: #a7dcfd;
 }
 
 .nav-bar-space-filler {

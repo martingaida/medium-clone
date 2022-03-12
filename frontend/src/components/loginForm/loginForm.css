@@ -47,12 +47,14 @@
     margin: 3.1em 0 0 0;
 }
 
-.form-content-footer > button {
+/* .form-content-footer > button {
     color: green;
     font-weight: bold;
     border-radius: none;
     background-color: none;
-}
+    border-radius: none;
+    background-color: none;
+} */
 
 #btn-signIn {
     margin: 3.1em 0 0 0;

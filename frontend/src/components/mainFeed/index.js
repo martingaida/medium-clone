@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom'
 import EditStoryModal from '../editStoryModal';
+import DeleteStoryModal from '../deleteStoryModal';
 import { deleteStory } from '../../store/stories';
 import { useState } from 'react';
 import './mainFeed.css';
@@ -43,7 +44,7 @@ const MainFeed = () => {
                                         (story.User.id === session.id) && 
                                             <div className='mF-edit-delete'>
                                                 <EditStoryModal id={story.id}/>
-                                                <button className='btn-plain' onClick={() => dispatch(deleteStory(story.id))}>Delete</button> 
+                                                <DeleteStoryModal storyId={story.id} /> 
                                             </div>
                                     : null}
                                 </div>
