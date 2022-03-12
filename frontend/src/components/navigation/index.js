@@ -34,7 +34,7 @@ const Navigation = () => {
                     {session && 
                         <>
                             <NewStoryModal />
-                            <button className='btn-grey' onClick={() => {dispatch(logout()); dispatch(modals.allModalsOff())}}>Log Out</button>
+                            <button className='btn-grey' onClick={() => {dispatch(logout()); dispatch(modals.allModalsOff()); dispatch(changeRoute())}}>Log Out</button>
                         </>
                     }
                 </div>
