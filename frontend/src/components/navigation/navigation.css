@@ -73,6 +73,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #main-logo > h1 {

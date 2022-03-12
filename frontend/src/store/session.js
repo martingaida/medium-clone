@@ -61,8 +61,8 @@ export const login = (user) => async (dispatch) => {
 };
 
 export const demoLogin = () => async (dispatch) => {
-    const credential = 'TermiNator';
-    const password = 't800t800';
+    const credential = 'DemoLitionMan';
+    const password = '123456';
 
     const response = await csrfFetch('/api/session', {
         method: 'POST',
