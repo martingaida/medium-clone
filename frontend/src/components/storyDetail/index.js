@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import EditStoryModal from '../editStoryModal';
 import NewCommentModal from '../newCommentModal';
 import EditCommentModal from '../editCommentModal';
+import DeleteCommentModal from '../deleteCommentModal';
+import LoginForm from '../loginForm';
 import { deleteStory } from '../../store/stories';
 import { fetchComments } from '../../store/comments';
 import { deleteComment } from '../../store/comments';
@@ -69,12 +71,12 @@ const StoryDetail = () => {
                                                             {(comment.userId === session.id) && 
                                                                 <div className='mF-edit-delete'>
                                                                     <EditCommentModal commentId={comment.id}/>
-                                                                    <button className='btn-plain' onClick={() => dispatch(deleteComment(comment.id))}>Delete</button>
+                                                                    <DeleteCommentModal commentId={comment.id} />
                                                                 </div>
                                                             }
                                                             {(comment.userId !== session.id && story.userId === session.id) &&
                                                                 <div className='mF-edit-delete'>
-                                                                    <button className='btn-plain' onClick={() => dispatch(deleteComment(comment.id))}>Delete</button>
+                                                                    <DeleteCommentModal commentId={comment.id} />
                                                                 </div>
                                                             }
                                                         </div>

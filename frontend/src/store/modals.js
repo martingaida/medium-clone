@@ -1,7 +1,7 @@
 const SIGN_UP_ON = 'modals/SIGNIN';
 const LOG_IN_ON = 'modals/LOGIN';
 const NEW_STORY_ON = 'modals/NEW';
-const EDIT_ON = 'modals/EDIT';
+const EDIT_STORY_ON = 'modals/EDIT';
 const DELETE_ON = 'modals/DELETE';
 
 const NEW_COMMENT = 'comments/NEW';
@@ -18,11 +18,10 @@ export const signupModalOn = () => {
             sign_up: true,
             log_in: false,
             new_story: false,
-            edit: false,
+            edit_story: false,
             delete: false,
             comment_new: false,
-            comment_edit: false,
-            comment_delete: false
+            comment_edit: false
         }
     };
 };
@@ -35,11 +34,10 @@ export const loginModalOn = () => {
             sign_up: false,
             log_in: true,
             new_story: false,
-            edit: false,
+            edit_story: false,
             delete: false,
             comment_new: false,
-            comment_edit: false,
-            comment_delete: false
+            comment_edit: false
         }
     };
 };
@@ -52,11 +50,10 @@ export const newStoryModalOn = () => {
             sign_up: false,
             log_in: false,
             new_story: true,
-            edit: false,
+            edit_story: false,
             delete: false,
             comment_new: false,
-            comment_edit: false,
-            comment_delete: false
+            comment_edit: false
         }
     };
 };
@@ -64,16 +61,15 @@ export const newStoryModalOn = () => {
 export const editModalOn = (id) => {
 
     return {
-        type: EDIT_ON,
+        type: EDIT_STORY_ON,
         payload: {
             sign_up: false,
             log_in: false,
             new_story: false,
-            edit: id,
+            edit_story: id,
             delete: false,
             comment_new: false,
-            comment_edit: false,
-            comment_delete: false
+            comment_edit: false
         }
     };
 };
@@ -86,11 +82,10 @@ export const deleteModalOn = () => {
             sign_up: false,
             log_in: false,
             new_story: false,
-            edit: false,
+            edit_story: false,
             delete: true,
             comment_new: false,
-            comment_edit: false,
-            comment_delete: false
+            comment_edit: false
         }
     };
 };
@@ -103,7 +98,7 @@ export const newCommentModalOn = () => {
             sign_up: false,
             log_in: false,
             new_story: false,
-            edit: false,
+            edit_story: false,
             delete: false,
             comment_new: true,
             comment_edit: false,
@@ -120,7 +115,7 @@ export const editCommentModalOn = (id) => {
             sign_up: false,
             log_in: false,
             new_story: false,
-            edit: false,
+            edit_story: false,
             delete: false,
             comment_new: false,
             comment_edit: id,
@@ -137,14 +132,14 @@ export const deleteCommentModalOn = () => {
             sign_up: false,
             log_in: false,
             new_story: false,
-            edit: false,
+            edit_story: false,
             delete: false,
             comment_new: false,
             comment_edit: false,
             comment_delete: true
         }
     };
-}
+};
 
 export const allModalsOff = () => {
 
@@ -154,11 +149,16 @@ export const allModalsOff = () => {
             sign_up: false,
             log_in: false,
             new_story: false,
-            edit: false,
-            delete: false
+            edit_story: false,
+            confirmation: false,
+            delete: false,
+            comment_new: false,
+            comment_edit: false,
+            comment_delete: false
         }
     };
 };
+
 
 export const modalsReducer = (state = {}, action) => {
     switch (action.type) {
@@ -177,7 +177,7 @@ export const modalsReducer = (state = {}, action) => {
             newState.modals = action.payload
             return newState
         }
-        case EDIT_ON: {
+        case EDIT_STORY_ON: {
             const newState = {...state}
             newState.modals = action.payload
             return newState
