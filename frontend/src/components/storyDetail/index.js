@@ -72,6 +72,11 @@ const StoryDetail = () => {
                                                                     <button className='btn-plain' onClick={() => dispatch(deleteComment(comment.id))}>Delete</button>
                                                                 </div>
                                                             }
+                                                            {(comment.userId !== session.id && story.userId === session.id) &&
+                                                                <div className='mF-edit-delete'>
+                                                                    <button className='btn-plain' onClick={() => dispatch(deleteComment(comment.id))}>Delete</button>
+                                                                </div>
+                                                            }
                                                         </div>
                                                     )
                                                 })

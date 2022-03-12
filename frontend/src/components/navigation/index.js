@@ -14,7 +14,7 @@ const Navigation = () => {
 
     const changeRoute = () => {
         history.push('/')
-    }
+    };
 
     return (
         <div className='nav-content-main'>
