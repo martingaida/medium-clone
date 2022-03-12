@@ -19,11 +19,13 @@
 .modal-content {
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
-    width: 678px;
-    height: 695px;
+    min-width: 25em;
+    min-height: 10em;
+    padding: 3em;
     border-radius: 5px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }

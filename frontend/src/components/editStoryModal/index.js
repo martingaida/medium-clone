@@ -9,8 +9,8 @@ const EditStoryModal = (id) => {
 
     return (
         <>
-            <button className='btn-black' onClick={() => dispatch(modals.editModalOn(id.id))}>Edit Story #{id.id}</button>
-            {modalState?.edit && (
+            <button className='btn-black' onClick={() => dispatch(modals.editModalOn(id.id))}>Edit Story</button>
+            {modalState?.edit_story && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
                     <EditStory />    
                 </Modal>

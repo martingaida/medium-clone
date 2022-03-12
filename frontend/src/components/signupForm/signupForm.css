@@ -24,14 +24,18 @@
 .form-content-footer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 3.1em 0 0 0;
 }
 
 .form-content-footer > button {
-    color: green;
     font-weight: bold;
-    border-radius: none;
-    background-color: none;
+    background-color: transparent;
+    font-size: 0.9em;
+    color: black;
+    border: 0.1em solid black;
+    border-radius: 2.2em;
+    padding: 0.6em 0.9em 0.6em 0.9em;
+    margin: 0 0 0 1em;
 }
