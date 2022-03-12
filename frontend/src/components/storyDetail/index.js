@@ -1,15 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { useEffect } from 'react';
 import EditStoryModal from '../editStoryModal';
 import NewCommentModal from '../newCommentModal';
 import EditCommentModal from '../editCommentModal';
 import DeleteCommentModal from '../deleteCommentModal';
 import DeleteStoryModal from '../deleteStoryModal';
+import AccessDeniedModal from '../accessDeniedModal';
 import LoginForm from '../loginForm';
-import { deleteStory } from '../../store/stories';
 import { fetchComments } from '../../store/comments';
-import { deleteComment } from '../../store/comments';
 import './storyDetail.css';
 
 const StoryDetail = () => {
@@ -18,7 +17,6 @@ const StoryDetail = () => {
     const comments = useSelector(state => state.comments.comments)
 
     const dispatch = useDispatch();
-    const history = useHistory();
     const { id } = useParams();
     
     useEffect(() => {
@@ -56,7 +54,6 @@ const StoryDetail = () => {
                                                 {(story.User.id === session.id) && 
                                                     <div className='mF-edit-delete'>
                                                         <EditStoryModal id={story.id}/>
-                                                        {/* <button className='btn-plain' onClick={() => dispatch(deleteStory(story.id))}>Delete</button>  */}
                                                         <DeleteStoryModal storyId={story.id} />
                                                     </div>
                                                 }
@@ -93,12 +90,7 @@ const StoryDetail = () => {
                         </div>
                     </div>
                 </>
-            : 
-                <>
-                    <div className='nav-bar-space-background'/>
-                    <div className='nav-bar-space-filler'/>
-                    <h1>Only registered users can access this content.</h1>
-                </>
+            : <Redirect to='/'/>
             }
         </>
     )

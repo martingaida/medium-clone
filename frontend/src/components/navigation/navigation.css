@@ -40,7 +40,7 @@
     font-size: 0.9em;
     color: white;
     padding: 0.6em 0.9em 0.6em 0.9em;
-    margin: 0;
+    margin: 0 0 0 1em;
 }
 
 .btn-black:hover {
@@ -59,13 +59,14 @@
 }
 
 .btn-grey {
-    background-color: #979797;
-    border-radius: 2.2em;
-    border-style: none;
+    font-weight: bold;
+    background-color: transparent;
     font-size: 0.9em;
-    color: white;
+    color: black;
+    border: 0.1em solid black;
+    border-radius: 2.2em;
     padding: 0.6em 0.9em 0.6em 0.9em;
-    margin: 0;
+    margin: 0 0 0 1em;
 }
 
 #main-logo {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { signup } from '../../store/session';
-// import LoginFormModal from '../loginFormModal';
+import LoginFormModal from '../loginFormModal';
 import * as modals from '../../store/modals';
 import './signupForm.css';
 
@@ -120,8 +120,8 @@ const SignupForm = () => {
                 </form>
             </div>
             <div className='form-content-footer'>
-                {/* <p>Already have any account?</p>
-                <LoginFormModal /> */}
+                <p>Already have any account?</p>
+                <LoginFormModal />
             </div>
         </div>
     )

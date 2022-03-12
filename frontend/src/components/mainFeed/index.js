@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom'
 import EditStoryModal from '../editStoryModal';
 import DeleteStoryModal from '../deleteStoryModal';
+import AccessDeniedModal from '../accessDeniedModal';
+import * as modals from '../../store/modals';
 import { deleteStory } from '../../store/stories';
 import { useState } from 'react';
 import './mainFeed.css';
@@ -18,13 +20,17 @@ const MainFeed = () => {
 
     return (
         <>
+            <AccessDeniedModal />
             <div className='mF-content-main'>
                 <div className='mF-content-story'>
-                    <div className='mF-story-details'>
+                    <div>
                         {stories?.map(story => {
                             
                             return (
-                                <div key={story.id} onClick={() => changeRoute(story.id)}>
+                                <div className='mF-story-details' key={story.id} onClick={() => {
+                                    session ? changeRoute(story.id)
+                                    : dispatch(modals.accessDeniedModalOn())
+                                }}>
                                     <div className='mF-story-author'>
                                         <img className='mF-author-profile' src={require('../../assets/avatars/hal9000.png')}/>
                                         <p>{story.User.username}</p>

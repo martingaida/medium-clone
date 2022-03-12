@@ -8,6 +8,8 @@ const NEW_COMMENT_ON = 'comments/NEW';
 const EDIT_COMMENT_ON = 'comments/EDIT';
 const DELETE_COMMENT_ON = 'comments/DELETE';
 
+const ACCESS_DENIED_ON = 'access/DENIED';
+
 const ALL_OFF = 'modals/OFF';
 
 export const signupModalOn = () => {
@@ -21,7 +23,8 @@ export const signupModalOn = () => {
             edit_story: false,
             delete_story: false,
             comment_new: false,
-            comment_edit: false
+            comment_edit: false,
+            access_denied: false
         }
     };
 };
@@ -37,7 +40,8 @@ export const loginModalOn = () => {
             edit_story: false,
             delete_story: false,
             comment_new: false,
-            comment_edit: false
+            comment_edit: false,
+            access_denied: false
         }
     };
 };
@@ -53,7 +57,8 @@ export const newStoryModalOn = () => {
             edit_story: false,
             delete_story: false,
             comment_new: false,
-            comment_edit: false
+            comment_edit: false,
+            access_denied: false
         }
     };
 };
@@ -69,7 +74,8 @@ export const editModalOn = (id) => {
             edit_story: id,
             delete_story: false,
             comment_new: false,
-            comment_edit: false
+            comment_edit: false,
+            access_denied: false
         }
     };
 };
@@ -85,7 +91,8 @@ export const deleteStoryModalOn = () => {
             edit_story: false,
             delete_story: true,
             comment_new: false,
-            comment_edit: false
+            comment_edit: false,
+            access_denied: false
         }
     };
 };
@@ -102,7 +109,8 @@ export const newCommentModalOn = () => {
             delete_story: false,
             comment_new: true,
             comment_edit: false,
-            comment_delete: false
+            comment_delete: false,
+            access_denied: false
         }
     };
 }
@@ -119,7 +127,8 @@ export const editCommentModalOn = (id) => {
             delete_story: false,
             comment_new: false,
             comment_edit: id,
-            comment_delete: false
+            comment_delete: false,
+            access_denied: false
         }
     };
 }
@@ -136,9 +145,28 @@ export const deleteCommentModalOn = () => {
             delete_story: false,
             comment_new: false,
             comment_edit: false,
-            comment_delete: true
+            comment_delete: true,
+            access_denied: false
         }
     };
+};
+
+export const accessDeniedModalOn = () => {
+
+    return {
+        type: ACCESS_DENIED_ON,
+        payload: {
+            sign_up: false,
+            log_in: false,
+            new_story: false,
+            edit_story: false,
+            delete_story: false,
+            comment_new: false,
+            comment_edit: false,
+            comment_delete: true,
+            access_denied: true
+        }
+    }
 };
 
 export const allModalsOff = () => {
@@ -154,7 +182,8 @@ export const allModalsOff = () => {
             delete_story: false,
             comment_new: false,
             comment_edit: false,
-            comment_delete: false
+            comment_delete: false,
+            access_denied: false
         }
     };
 };
@@ -203,6 +232,11 @@ export const modalsReducer = (state = {}, action) => {
             return newState
         }
         case DELETE_COMMENT_ON: {
+            const newState = {...state}
+            newState.modals = action.payload
+            return newState
+        }
+        case ACCESS_DENIED_ON: {
             const newState = {...state}
             newState.modals = action.payload
             return newState

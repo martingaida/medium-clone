@@ -21,8 +21,8 @@ const DeleteStoryModal = (storyId) => {
             {modalState?.delete_story && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
                     <h1>Are you sure?</h1>
-                    <button className='btn-plain' onClick={() => {dispatch(deleteStory(storyId.storyId)); dispatch(changeRoute())}}>Yes</button>
-                    <button className='btn-black' onClick={() => dispatch(modals.allModalsOff())}>No</button> 
+                    <button className='btn-plain' onClick={() => {dispatch(deleteStory(storyId.storyId)); dispatch(changeRoute())}}>Delete</button>
+                    <button className='btn-black' onClick={() => dispatch(modals.allModalsOff())}>Cancel</button> 
                 </Modal>
             )}
         </>

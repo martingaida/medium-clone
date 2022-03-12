@@ -15,8 +15,8 @@ const DeleteCommentModal = (commentId) => {
             {modalState?.comment_delete && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
                     <h1>Are you sure?</h1>
-                    <button className='btn-plain' onClick={() => dispatch(deleteComment(commentId.commentId))}>Yes</button>
-                    <button className='btn-black' onClick={() => dispatch(modals.allModalsOff())}>No</button> 
+                    <button className='btn-plain' onClick={() => dispatch(deleteComment(commentId.commentId))}>Delete</button>
+                    <button className='btn-black' onClick={() => dispatch(modals.allModalsOff())}>Cancel</button> 
                 </Modal>
             )}
         </>

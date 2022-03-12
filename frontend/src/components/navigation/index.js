@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { logout, demoLogin } from '../../store/session';
 import LoginFormModal from '../loginFormModal';
 import SignupFormModal from '../signupFormModal';
@@ -34,7 +34,7 @@ const Navigation = () => {
                     {session && 
                         <>
                             <NewStoryModal />
-                            <button className='btn-grey' onClick={() => {dispatch(logout()); dispatch(modals.allModalsOff()); dispatch(changeRoute())}}>Log Out</button>
+                            <button className='btn-plain' onClick={() => {dispatch(logout()); dispatch(modals.allModalsOff()); dispatch(changeRoute())}}>Log Out</button>
                         </>
                     }
                 </div>

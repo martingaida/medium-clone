@@ -27,7 +27,6 @@ const NewComment = (storyId) => {
 
     return (
         <>
-            <div className='nav-bar-space-filler'/>
             <h1>New comment form.</h1>
             <div className='form-content-main'>
                 <form onSubmit={handleSubmit}>
