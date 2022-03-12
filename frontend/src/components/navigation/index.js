@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../store/session';
+import { logout, demoLogin } from '../../store/session';
 import LoginFormModal from '../loginFormModal';
 import SignupFormModal from '../signupFormModal';
 import NewStoryModal from '../newStoryModal';
@@ -20,6 +20,7 @@ const Navigation = () => {
                 <div className='nav-bar'>
                     {!session && 
                         <>
+                            <button className='btn-plain' onClick={() => dispatch(demoLogin())}>Demo</button>
                             <LoginFormModal />
                             <SignupFormModal />
                         </>
@@ -34,6 +35,6 @@ const Navigation = () => {
             </div>
         </div>
     )
-}
+};
 
 export default Navigation;
