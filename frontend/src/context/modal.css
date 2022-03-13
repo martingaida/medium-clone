@@ -26,6 +26,24 @@
     min-width: 25em;
     min-height: 10em;
     padding: 3em;
-    border-radius: 5px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.2);
+}
+
+.btn-x {
+    background-color: transparent;
+    font-size: 1.5em;
+    color: rgba(128, 128, 128, 0.25);
+    border-style: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.modal-close {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+    margin: -1.5em -2em 0 0;
 }

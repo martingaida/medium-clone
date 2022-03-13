@@ -52,7 +52,9 @@ const StoryDetail = () => {
                                                     <p className='mF-story-tag'>Category</p>
                                                 </div>
                                                 <div className='mF-edit-delete'>
-                                                    <NewCommentModal storyId={story.id}/>
+                                                    <>
+                                                        <NewCommentModal storyId={story.id}/>
+                                                    </>
                                                     {(story.User.id === session.id) && 
                                                         <>
                                                             <EditStoryModal id={story.id}/>

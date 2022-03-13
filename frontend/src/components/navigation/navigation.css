@@ -36,7 +36,7 @@
 .btn-black {
     background-color: black;
     border-radius: 2.2em;
-    border-style: none;
+    border: 0.1em solid black;
     font-size: 0.9em;
     color: white;
     padding: 0.6em 0.9em 0.6em 0.9em;

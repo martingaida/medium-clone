@@ -14,7 +14,7 @@ const EditStoryModal = (id) => {
             <button className='btn-plain' onClick={() => dispatch(modals.editModalOn(id.id))}><FontAwesomeIcon icon={faPenToSquare} className='icon-main' /></button>
             {modalState?.edit_story && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
-                    <EditStory />    
+                    <EditStory />        
                 </Modal>
             )}
         </>
