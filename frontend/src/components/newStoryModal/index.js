@@ -14,7 +14,9 @@ const NewStoryModal = () => {
             <button className='btn-black' onClick={() => dispatch(modals.newStoryModalOn())}>New Story</button>
             {modalState?.new_story && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
-                    <NewStory />    
+                    <div className='modal-btns'>
+                        <NewStory />
+                    </div>   
                 </Modal>
             )}
         </>

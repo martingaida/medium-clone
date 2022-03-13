@@ -20,9 +20,11 @@ const AccessDeniedModal = () => {
         <>
             {modalState?.access_denied && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
-                    <h1>Only registered users can access this content.</h1>
-                    <LoginFormModal />
-                    <SignupFormModal />
+                    <h2>Only registered users can access this content.</h2>
+                    <div className='modal-btns'>
+                        <LoginFormModal />
+                        <SignupFormModal />
+                    </div>
                 </Modal>
             )}
         </>

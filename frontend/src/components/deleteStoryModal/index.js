@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 import { Modal } from '../../context/modal';
 import * as modals from '../../store/modals';
 import { deleteStory } from '../../store/stories';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import './deleteStoryModal.css';
 
 const DeleteStoryModal = (storyId) => {
@@ -17,7 +20,7 @@ const DeleteStoryModal = (storyId) => {
 
     return (
         <>
-            <button className='btn-plain' onClick={() => dispatch(modals.deleteStoryModalOn())}>Delete</button>
+            <button className='btn-plain' onClick={() => dispatch(modals.deleteStoryModalOn())}><FontAwesomeIcon icon={faTrash} className='icon-main' /></button>
             {modalState?.delete_story && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
                     <h1>Are you sure?</h1>

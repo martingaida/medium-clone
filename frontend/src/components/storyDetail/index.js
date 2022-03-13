@@ -51,37 +51,41 @@ const StoryDetail = () => {
                                                     <p>5 min read</p>
                                                     <p className='mF-story-tag'>Category</p>
                                                 </div>
-                                                {(story.User.id === session.id) && 
-                                                    <div className='mF-edit-delete'>
-                                                        <EditStoryModal id={story.id}/>
-                                                        <DeleteStoryModal storyId={story.id} />
-                                                    </div>
-                                                }
+                                                <div className='mF-edit-delete'>
+                                                    <>
+                                                        <NewCommentModal storyId={story.id}/>
+                                                    </>
+                                                    {(story.User.id === session.id) && 
+                                                        <>
+                                                            <EditStoryModal id={story.id}/>
+                                                            <DeleteStoryModal storyId={story.id} />
+                                                        </>
+                                                    }
+                                                </div>
                                             </div>
                                             <div className='sD-comments-container'>
-                                                <NewCommentModal storyId={story.id}/>
-                                            {comments?.map(comment => {
-                                                if (comment.storyId === story.id) 
-                                                    return (
-                                                        <div key={comment.id}>
-                                                            <div className='sD-comments-main'>
-                                                                <h3>{comment.content}</h3>
+                                                {comments?.map(comment => {
+                                                    if (comment.storyId === story.id) 
+                                                        return (
+                                                            <div key={comment.id}>
+                                                                <div className='sD-comments-main'>
+                                                                    <h3>{comment.content}</h3>
+                                                                </div>
+                                                                {(comment.userId === session.id) && 
+                                                                    <div className='mF-edit-delete'>
+                                                                        <EditCommentModal commentId={comment.id}/>
+                                                                        <DeleteCommentModal commentId={comment.id} />
+                                                                    </div>
+                                                                }
+                                                                {(comment.userId !== session.id && story.userId === session.id) &&
+                                                                    <div className='mF-edit-delete'>
+                                                                        <DeleteCommentModal commentId={comment.id} />
+                                                                    </div>
+                                                                }
                                                             </div>
-                                                            {(comment.userId === session.id) && 
-                                                                <div className='mF-edit-delete'>
-                                                                    <EditCommentModal commentId={comment.id}/>
-                                                                    <DeleteCommentModal commentId={comment.id} />
-                                                                </div>
-                                                            }
-                                                            {(comment.userId !== session.id && story.userId === session.id) &&
-                                                                <div className='mF-edit-delete'>
-                                                                    <DeleteCommentModal commentId={comment.id} />
-                                                                </div>
-                                                            }
-                                                        </div>
-                                                    )
-                                                })
-                                            }
+                                                        )
+                                                    })
+                                                }
                                             </div>
                                         </div>
                                     )

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../../context/modal';
 import NewComment from '../newComment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMessage } from '@fortawesome/free-solid-svg-icons';
 import * as modals from '../../store/modals';
 import './newCommentModal.css';
 
@@ -11,7 +13,7 @@ const NewCommentModal = (storyId) => {
 
     return (
         <>
-            <button className='btn-black' onClick={() => dispatch(modals.newCommentModalOn())}>New Comment</button>
+            <button className='btn-plain' onClick={() => dispatch(modals.newCommentModalOn())}><FontAwesomeIcon icon={faMessage} className='icon-main' /></button>
             {modalState?.comment_new && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
                     <NewComment storyId={storyId}/>    

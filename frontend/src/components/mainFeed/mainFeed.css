@@ -29,7 +29,7 @@
 }
 
 .mF-story-title > h2 {
-    font-size: 1.4em;
+    font-size: 1.6em;
     margin: 0;
 }
 
@@ -95,6 +95,11 @@
     background-color: #f2f2f2;
     border-radius: 0.9em;
     padding: 0.4em 0.6em;
+}
+
+.footer-space-filler {
+    width: 100vw;
+    height: 4.7em;
 }
 
 @media (max-width: 31.2em) {
