@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../../context/modal';
 import EditStory from '../editStory';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import * as modals from '../../store/modals';
 
 const EditStoryModal = (id) => {
@@ -9,7 +11,7 @@ const EditStoryModal = (id) => {
 
     return (
         <>
-            <button className='btn-black' onClick={() => dispatch(modals.editModalOn(id.id))}>Edit Story</button>
+            <button className='btn-plain' onClick={() => dispatch(modals.editModalOn(id.id))}><FontAwesomeIcon icon={faPenToSquare} className='icon-main' /></button>
             {modalState?.edit_story && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
                     <EditStory />    

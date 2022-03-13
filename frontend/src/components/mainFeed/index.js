@@ -56,6 +56,7 @@ const MainFeed = () => {
                                 </div>
                             )
                         })}
+                    <div className='footer-space-filler'/>
                     </div>
                 </div>
             </div>
