@@ -10,5 +10,8 @@ module.exports = {
     jwtConfig: {
       secret: process.env.JWT_SECRET,
       expiresIn: process.env.JWT_EXPIRES_IN
+    },
+    openAIkey: {
+      apiKey: process.env.OPEN_AI_API_KEY
     }
   };

@@ -1,11 +1,8 @@
 const { Configuration, OpenAIApi } = require('openai');
-
-const API_KEY = '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';
-
-// const text = 'Sally sells jewelry.';
+const { openAIkey } = require('../config/index');
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: openAIkey.apiKey,
 });
 const openai = new OpenAIApi(configuration);
 
