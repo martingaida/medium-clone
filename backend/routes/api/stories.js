@@ -6,6 +6,7 @@ const csrf = require('csurf');
 const { response } = require('express');
 const csrfProtection = csrf({ cookie: true });
 const router = express.Router();
+const { generateCompletion } = require('../../utils/openAI');
 
 // Fetch all stories
 router.get('/', 
@@ -38,8 +39,10 @@ router.post('/new',
     asyncHandler(async (req, res) => {
         const { userId, title, content } = req.body
         const validationErrors = validationResult(req)
+        const prompt = content 
 
         if (validationErrors.isEmpty()) {
+            const content = await generateCompletion(prompt)
             const story = await Story.create({
                 userId,
                 title,
