@@ -60,6 +60,6 @@ const EditStory = () => {
             </div>
         </>
     )
-}
+};
 
 export default EditStory;

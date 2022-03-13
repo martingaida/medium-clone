@@ -26,6 +26,8 @@
     text-overflow: ellipsis;
     line-height: 1em;
     overflow: hidden;
+    width: 85vw;
+    max-width: 46.9em;
 }
 
 .mF-story-title > h2 {
@@ -102,14 +104,7 @@
     height: 4.7em;
 }
 
-@media (max-width: 31.2em) {
-
-    .mF-content-story {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+@media (max-width: 45.8em) {
 
     .mF-story-img > img {
         width: 85vw;
@@ -122,13 +117,39 @@
         justify-content: center;
         align-items: center;
         height: 100%;
+        max-width: 85vw;
     }
 
     .mF-story-info {
-        margin: 0.9em 0 0.9em 0;
+        display: none;
     }
 
     .mF-story-title > h2 {
         margin: 0.9em 0 0 0;
+    }
+
+    .mF-content-main {
+        width: 100vw;
+    }
+
+    .mF-story-details {
+       margin: 2em 0 0 2em;
+    }
+
+    .mF-story-sample {
+        width: 70vw;
+    }
+
+    .mF-story-author {
+        margin-top: 2em;
+        margin-bottom: 0;
+    }
+
+    .mF-story > p {
+        padding-right: 3em;
+    }
+
+    .mF-edit-delete {
+        margin-bottom: 3em;
     }
 }

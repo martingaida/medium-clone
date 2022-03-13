@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { Modal } from '../../context/modal';
 import * as modals from '../../store/modals';
 import { deleteStory } from '../../store/stories';
@@ -24,7 +24,7 @@ const DeleteStoryModal = (storyId) => {
             {modalState?.delete_story && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
                     <h1>Are you sure?</h1>
-                    <button className='btn-plain' onClick={() => {dispatch(deleteStory(storyId.storyId)); dispatch(changeRoute())}}>Delete</button>
+                    <button className='btn-plain' onClick={() => {dispatch(deleteStory(storyId.storyId)); dispatch(modals.allModalsOff())}}>Delete</button>
                     <button className='btn-black' onClick={() => dispatch(modals.allModalsOff())}>Cancel</button> 
                 </Modal>
             )}

@@ -91,5 +91,10 @@
         flex-direction: column;
         justify-content: flex-end;
         align-items: right;
+        width: 100vw;
+    }
+
+    .sP-content-center {
+        justify-content: center;
     }
 }

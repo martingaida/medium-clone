@@ -33,8 +33,8 @@ const NewStory = () => {
 
     return (
         <>
-            <h1>New story form.</h1>
             <div className='form-content-main'>
+                <h1>New story form.</h1>
                 <form onSubmit={handleSubmit}>
                     <input
                         className='input-field' 
