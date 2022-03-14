@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { validationResult } = require('express-validator');
-const { Story } = require('../../db/models');
+const { Story, Comment } = require('../../db/models');
 const csrf = require('csurf');
 const { response } = require('express');
 const csrfProtection = csrf({ cookie: true });
@@ -78,7 +78,12 @@ router.post('/delete/:id(\\d+)',
     asyncHandler(async (req, res) => {
         const { id } = req.params
         const story = await Story.findByPk(id)
-
+        const comments = await Comment.findAll({
+            where: {
+                storyId: id
+            }
+        })
+        await comments.forEach(comment => comment.destroy())
         await story.destroy()
         res.redirect('/')
     })

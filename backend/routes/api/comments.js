@@ -42,6 +42,21 @@ router.get('/',
     })
 );
 
+// // Fetch all specific story comments
+// router.get('/story/:id(\\d+)', 
+//     csrfProtection,
+//     asyncHandler(async (req, res) => {
+//         const { id } = req.params
+//         const comments = await Comment.findAll({
+//             where: {
+//                 storyId: id
+//             }
+//         });
+
+//         return res.json({ comments })
+//     })
+// );
+
 // Edit a comment
 router.post('/edit/:id(\\d+)', 
     csrfProtection,

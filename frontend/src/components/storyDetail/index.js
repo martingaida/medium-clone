@@ -47,8 +47,8 @@ const StoryDetail = () => {
                                         </div>
                                         <div className='mF-story-info'>
                                             <p>{story.createdAt}</p>
-                                            <p>5 min read</p>
-                                            <p className='mF-story-tag'>Category</p>
+                                            <p>{Math.round(story.content.length/400)} min read</p>
+                                            <p className='mF-story-tag'>GPT-3</p>
                                         </div>
                                         <div className='mF-edit-delete'>
                                             <>
@@ -67,6 +67,7 @@ const StoryDetail = () => {
                                             if (comment.storyId === story.id) 
                                                 return (
                                                     <div key={comment.id}>
+                                                        <p>{comment.userId}</p>
                                                         <div className='sD-comments-main'>
                                                             <h3>{comment.content}</h3>
                                                         </div>
