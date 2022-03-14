@@ -47,8 +47,8 @@ const EditStory = () => {
                         placeholder='Title'
                     />
                     
-                    <input
-                        className='input-field' 
+                    <textarea
+                        className='text-area' 
                         type='text'
                         name='Content' 
                         value={content}
