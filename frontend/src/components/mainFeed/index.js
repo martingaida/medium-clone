@@ -5,10 +5,12 @@ import DeleteStoryModal from '../deleteStoryModal';
 import AccessDeniedModal from '../accessDeniedModal';
 import * as modals from '../../store/modals';
 import { deleteStory } from '../../store/stories';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './mainFeed.css';
 
 const MainFeed = () => {
+    // const [readingTime, setReadingTime] = useState(1);
+
     const stories = useSelector(state => state.stories.stories)
     const session = useSelector(state => state.session.user)
     const dispatch = useDispatch();
@@ -43,8 +45,8 @@ const MainFeed = () => {
                                     </div>
                                     <div className='mF-story-info'>
                                         <p>{story.createdAt}</p>
-                                        <p>5 min read</p>
-                                        <p className='mF-story-tag'>Category</p>
+                                        <p>{Math.round(story.content.length/400)} min read</p>
+                                        <p className='mF-story-tag'>GPT-3</p>
                                     </div>
                                     {session ? 
                                         (story.User.id === session.id) && 

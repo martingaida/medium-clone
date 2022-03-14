@@ -9,6 +9,7 @@ const EDIT_COMMENT_ON = 'comments/EDIT';
 const DELETE_COMMENT_ON = 'comments/DELETE';
 
 const ACCESS_DENIED_ON = 'access/DENIED';
+const ABOUT_ON = 'navigation/ABOUT';
 
 const ALL_OFF = 'modals/OFF';
 
@@ -24,7 +25,8 @@ export const signupModalOn = () => {
             delete_story: false,
             comment_new: false,
             comment_edit: false,
-            access_denied: false
+            access_denied: false,
+            about: false
         }
     };
 };
@@ -41,7 +43,8 @@ export const loginModalOn = () => {
             delete_story: false,
             comment_new: false,
             comment_edit: false,
-            access_denied: false
+            access_denied: false,
+            about: false
         }
     };
 };
@@ -58,7 +61,8 @@ export const newStoryModalOn = () => {
             delete_story: false,
             comment_new: false,
             comment_edit: false,
-            access_denied: false
+            access_denied: false,
+            about: false
         }
     };
 };
@@ -75,7 +79,8 @@ export const editModalOn = (id) => {
             delete_story: false,
             comment_new: false,
             comment_edit: false,
-            access_denied: false
+            access_denied: false,
+            about: false
         }
     };
 };
@@ -92,7 +97,8 @@ export const deleteStoryModalOn = () => {
             delete_story: true,
             comment_new: false,
             comment_edit: false,
-            access_denied: false
+            access_denied: false,
+            about: false
         }
     };
 };
@@ -110,7 +116,8 @@ export const newCommentModalOn = () => {
             comment_new: true,
             comment_edit: false,
             comment_delete: false,
-            access_denied: false
+            access_denied: false,
+            about: false
         }
     };
 }
@@ -128,7 +135,8 @@ export const editCommentModalOn = (id) => {
             comment_new: false,
             comment_edit: id,
             comment_delete: false,
-            access_denied: false
+            access_denied: false,
+            about: false
         }
     };
 }
@@ -146,7 +154,8 @@ export const deleteCommentModalOn = () => {
             comment_new: false,
             comment_edit: false,
             comment_delete: true,
-            access_denied: false
+            access_denied: false,
+            about: false
         }
     };
 };
@@ -164,10 +173,31 @@ export const accessDeniedModalOn = () => {
             comment_new: false,
             comment_edit: false,
             comment_delete: true,
-            access_denied: true
+            access_denied: true,
+            about: false
         }
     }
 };
+
+export const aboutModalOn = () => {
+
+    return {
+        type: ABOUT_ON,
+        payload: {
+            sign_up: false,
+            log_in: false,
+            new_story: false,
+            edit_story: false,
+            confirmation: false,
+            delete_story: false,
+            comment_new: false,
+            comment_edit: false,
+            comment_delete: false,
+            access_denied: false,
+            about: true
+        }
+    }
+}
 
 export const allModalsOff = () => {
 
@@ -183,7 +213,8 @@ export const allModalsOff = () => {
             comment_new: false,
             comment_edit: false,
             comment_delete: false,
-            access_denied: false
+            access_denied: false,
+            about: false
         }
     };
 };
@@ -216,11 +247,6 @@ export const modalsReducer = (state = {}, action) => {
             newState.modals = action.payload
             return newState
         }
-        case ALL_OFF: {
-            const newState = {...state}
-            newState.modals = action.payload
-            return newState
-        }
         case NEW_COMMENT_ON: {
             const newState = {...state}
             newState.modals = action.payload
@@ -237,6 +263,16 @@ export const modalsReducer = (state = {}, action) => {
             return newState
         }
         case ACCESS_DENIED_ON: {
+            const newState = {...state}
+            newState.modals = action.payload
+            return newState
+        }
+        case ABOUT_ON: {
+            const newState = {...state}
+            newState.modals = action.payload
+            return newState
+        }
+        case ALL_OFF: {
             const newState = {...state}
             newState.modals = action.payload
             return newState

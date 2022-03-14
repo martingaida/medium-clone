@@ -4,6 +4,7 @@ import { logout, demoLogin } from '../../store/session';
 import LoginFormModal from '../loginFormModal';
 import SignupFormModal from '../signupFormModal';
 import NewStoryModal from '../newStoryModal';
+import AboutModal from '../aboutModal';
 import * as modals from '../../store/modals';
 import './navigation.css';
 
@@ -26,6 +27,7 @@ const Navigation = () => {
                 <div className='nav-bar'>
                     {!session && 
                         <>
+                            <AboutModal />
                             <button className='btn-plain' onClick={() => dispatch(demoLogin())}>Demo</button>
                             <LoginFormModal />
                             <SignupFormModal />
@@ -33,6 +35,7 @@ const Navigation = () => {
                     }
                     {session && 
                         <>
+                            <AboutModal />
                             <NewStoryModal />
                             <button className='btn-plain' onClick={() => {dispatch(logout()); dispatch(modals.allModalsOff()); dispatch(changeRoute())}}>Log Out</button>
                         </>
