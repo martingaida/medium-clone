@@ -5,6 +5,18 @@
     text-align: center;
 }
 
+.error-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-list > ul {
+    text-align: center;
+    margin: 0;
+}
+
 .modal-login-form {
     display: flex;
     justify-content: center;

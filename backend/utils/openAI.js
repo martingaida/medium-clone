@@ -11,9 +11,9 @@ const generateCompletion = async (prompt) => {
     const response = await openai.createCompletion('text-davinci-001', {
         prompt,
         max_tokens: 1000,
-        temperature: 0.5,
+        temperature: 1,
         n: 1,
-        echo: true,
+        echo: false,
         stop: 'string'
     });
     console.log(response.data.choices)

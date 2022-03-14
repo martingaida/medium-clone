@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../store/session';
@@ -9,6 +9,8 @@ import './loginForm.css';
 function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [usernameError, setUsernameError] = useState();
+    const [passwordError, setPasswordError] = useState();
     const [errors, setErrors] = useState([]);
 
     const session = useSelector(state => state.session.user);
@@ -20,7 +22,17 @@ function LoginForm() {
         setPassword('')
     };
 
-    // if (session) history.push('/')
+    useEffect(() => {
+        if (username.length < 4 && username) {
+            setUsernameError('Username must have at least 4 characters')
+        } else if (username.length > 30) {
+            setUsernameError('Username is too long')
+        } else setUsernameError();
+        if (password.length < 6 && password) {
+            setPasswordError('Password must have at least six characters')
+        } else setPasswordError();
+
+    },[username, password])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -44,7 +56,7 @@ function LoginForm() {
     return (
         <div className='modal-form-component'>
             <p>Log in.</p>
-            <div>
+            <div className='error-list'>
                 <ul>
                     {errors?.map(error => <li key={error} className='error-message'>{error}</li>)}
                 </ul>
@@ -59,6 +71,7 @@ function LoginForm() {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
+                    <p className='error-message'>{usernameError}</p>
                     <input 
                         className='input-field' 
                         type='password' 
@@ -67,6 +80,7 @@ function LoginForm() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                    <p className='error-message'>{passwordError}</p>
                     <input className='btn-black' id='btn-signIn' type='submit' value='Submit'/>
                 </form>
             </div>
