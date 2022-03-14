@@ -23,9 +23,11 @@ const DeleteStoryModal = (storyId) => {
             <button className='btn-plain' onClick={() => dispatch(modals.deleteStoryModalOn())}><FontAwesomeIcon icon={faTrash} className='icon-main' /></button>
             {modalState?.delete_story && (
                 <Modal onClose={() => dispatch(modals.allModalsOff())}>
-                    <h1>Are you sure?</h1>
-                    <button className='btn-plain' onClick={() => {dispatch(deleteStory(storyId.storyId)); dispatch(modals.allModalsOff())}}>Delete</button>
-                    <button className='btn-black' onClick={() => dispatch(modals.allModalsOff())}>Cancel</button> 
+                    <div className='edit-delete'>
+                        <h1>Are you sure?</h1>
+                        <button className='btn-plain' onClick={() => {dispatch(deleteStory(storyId.storyId)); dispatch(modals.allModalsOff())}}>Delete</button>
+                        <button className='btn-black' onClick={() => dispatch(modals.allModalsOff())}>Cancel</button> 
+                    </div>
                 </Modal>
             )}
         </>
