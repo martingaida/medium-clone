@@ -67,7 +67,6 @@ const StoryDetail = () => {
                                             if (comment.storyId === story.id) 
                                                 return (
                                                     <div key={comment.id}>
-                                                        <p>{comment.userId}</p>
                                                         <div className='sD-comments-main'>
                                                             <h3>{comment.content}</h3>
                                                         </div>
