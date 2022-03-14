@@ -24,7 +24,7 @@ const AboutModal = () => {
                         <div className='about-modal-content'>
                             <p>Medium inspired React project by Martin Gaida utilizing GPT-3 neural network in order to allow users to get a glimpse of what's possible with modern day technology.</p>
                             <div className='footer-text'>
-                                <p>JavaScript | React | Node.js | Express | SQL | HTML5 | CSS | Git | GPT-3</p>
+                                <p>JavaScript | React | Redux | Node.js | Express | SQL | HTML5 | CSS | Git | GPT-3</p>
                             </div>
                         </div>
                     </>
